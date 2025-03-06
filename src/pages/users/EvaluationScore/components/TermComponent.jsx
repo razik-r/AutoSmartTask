@@ -4,7 +4,7 @@ export default function Term(){
         <>
 
 
-<div className="     border-[1.5px] border-gray-border rounded-[8px] flex flex-col gap-4  py-2.5 pr-3 pl-2.5 font-inter">
+<div className="border-[1.5px] border-gray-border rounded-[8px] flex flex-col gap-2 max-h-[56px] py-2.5 pr-3 pl-2.5 font-inter">
     <p className="text-text-gray text-[10px] font-normal ml-[1px] tracking-[-0.5%] leading-3">Select the term</p>
     <div className="flex gap-2 justify-center items-center">
       <h1 className="font-medium text-xs leading-4 tracking-[-0.5%]">2025-Quarter 1</h1>
