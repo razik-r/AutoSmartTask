@@ -6,6 +6,7 @@ import TermComponent from './TermComponent'
 import { Bolt ,CircleAlert,CircleCheck ,ChevronsUpDown,Trophy} from 'lucide-react'; 
 
 
+
 const data=[
     { name:"Ebrahim Khalil kano", id:"#C1234" ,value:"12", className:"bg-blue-200 text-blue-400", btntext:"Pending"},
     { name:"Alolya Jeddah", id:"#C2345" ,value:"12", className:"bg-orange-200 text-orange-400", btntext:"Ongoing"},
@@ -21,87 +22,91 @@ export default function EvaluationScore(){
 
         <>
 
-        <body className='min-h-full bg-gray-100 mx-[16px] my-5'>
+        <body className='min-h-full bg-white-200 mx-[16px] my-5 '>
         
-                <div className="min-w-full py-5 flex items-center  bg-white mb-5 border-2 border-gray-200 rounded-[12px]">
+                <div className="min-w-full py-5 flex items-center  bg-white-200 mb-5 border border-gray-border1 rounded-[12px]">
                     <div className="p-3 ml-3  bg-orange-200 border-2 border-orange-500 rounded-[12px]"><Trophy color="#b34700" /></div>
                     <h1 className='ml-4  text-2xl align-text-top font-medium'>Evaluation Score</h1>
                 </div>
                 
-                  <div className="min-h-[564px]  rounded-[16px] border-2 p-3 bg-white border-neutral-300   ">
+                  <div className="min-h-[564px]  rounded-[16px] border-[1.5px] p-3 bg-white border-gray-border1   ">
         
                     <div className="flex">
                       <TermComponent/>
                       <SearchComponent/>
                     </div>
         
-                    <div className="flex flex-wrap sm:flex-nowrap gap-1 sm:gap-2">
-                    <Dropdown text="Audit" />
+                    <div className="flex flex-wrap sm:flex-nowrap gap-1 sm:gap-4">
+                    <Dropdown text="Auditor" />
                     <Dropdown text="Region" />
                     <Dropdown text="Type" />
                     <Dropdown text="Outlet" />
                     <Dropdown text="Status" />
         
-                            <div className="ml-auto flex justify-center items-center gap-2">
-                            <CircleAlert  color="#082fa6" /> 
-                              <h2 className="text-gray-400">Pending</h2>
+                            <div className="ml-auto px-4  font-inter py-1.5 flex flex-wrap sm: flex-nowrap justify-center items-center gap-1">
+
+                            <CircleAlert className='w-7 h-7'  color="#082fa6" /> 
+                              <h2 className="text-text-gray text-xs">Pending</h2>
+                              <h2 classname="text-sm">12</h2>
+
+                              <Bolt className='w-7 h-7' color="#d45602" />
+                              <h2 className="text-text-gray text-xs">Ongoing</h2>
+                              <h2 classname="text-sm">12</h2>
+
+                              <CircleAlert className='w-7 h-7' color="#082fa6" /> 
+                              <h2 className="text-text-gray text-xs">Approval</h2>
+                              <h2 classname="text-sm">12</h2>
+
+                              <CircleCheck className='w-7 h-7' color="#209608" />
+                              <h2 className="text-text-gray text-xs">Submitted</h2>
                               <h2 classname="">12</h2>
+
+
                             </div>
         
                         
-                            <div className="   flex justify-center items-center gap-2">
-                            <Bolt  color="#d45602" />
-                              <h2 className="text-gray-400">Ongoing</h2>
-                              <h2 classname="">12</h2>
-                            </div>
+                           
         
-                            <div className=" flex justify-center items-center gap-2">
-                            <CircleAlert  color="#082fa6" /> 
-                              <h2 className="text-gray-400">Approval</h2>
-                              <h2 classname="">12</h2>
-                            </div>
+                            
         
-                            <div className=" flex w-auto justify-center items-center gap-2">
-                            <CircleCheck size={20} color="#209608" />
-                              <h2 className="text-gray-400">Submitted</h2>
-                              <h2 classname="">12</h2>
-                            </div>
+                            
                             </div>
         
         
         {/* table */}
         
         
-        <div className="mt-6 mx-2 border-[1.5px] border-neutral-300  rounded-[13px] overflow-hidden">
+        <div className="mt-6 border-[1.5px] border-gray-border1  rounded-[12px] overflow-hidden">
+        <div className="overflow-x-auto ">
             <table className="w-full text-sm text-left rtl:text-right text-black">
-                <thead className="text-sm ">
-                    <tr className="border-b-2 border-neutral-300 bg-neutral-100 ">
-                        <th scope="col" className="px-6 flex py-3 font-normal  justify-start mt-2 gap-2 ">
-                            Center Name <ChevronsUpDown size={20} />
+                <thead className="p-3">
+                    <tr className="border-b-2 border-neutral-300 bg-[#F6F6F6] text-xs font-inter ">
+                        <th scope="col" className=" font-normal px-3 ">
+                         <h2 className='flex items-center'>Center Name    <ChevronsUpDown className="text-[#84838A] w-4 h-4"  /> </h2>
                         </th>
-                        <th scope="col" class="px-6 py-3 font-normal  ">
-                            <h2 className='flex'>Auditor <ChevronsUpDown size={20}/></h2>
+                        <th scope="col" className="p-3 font-normal  ">
+                            <h2 className='flex items-center'>Auditor   <ChevronsUpDown className="text-[#84838A] w-4 h-4"  /></h2>
                         </th>
-                        <th scope="col" class="px-6 py-3 font-normal">
-                        <h2 className='flex'>Customer Experience <ChevronsUpDown /></h2>
+                        <th scope="col" className="px-6 py-3 font-normal">
+                        <h2 className='flex items-center'>Customer Experience   <ChevronsUpDown className="text-[#84838A] w-4 h-4 flex-none"  /></h2>
                         </th>
-                        <th scope="col" class="px-6 py-3 font-normal">
-                            Equipment Management
+                        <th scope="col" className="px-6 py-3 font-normal">
+                        <h2 className='flex items-center'>Equipment Management   <ChevronsUpDown className="text-[#84838A] w-4 h-4 flex-none"  /></h2>
                         </th>
-                        <th scope="col" class="px-6 py-3 font-normal">
-                            Battery Bussiness
+                        <th scope="col" className="px-6 py-3 font-normal">
+                        <h2 className='flex items-center'>    Battery Bussiness <ChevronsUpDown className="text-[#84838A] w-4 h-4 flex-none"  /></h2>
                         </th>
-                        <th scope="col" class="px-6 py-3 font-normal border-r border-gray-200">
-                           Periodic Maintenance
+                        <th scope="col" className="px-6 py-3 font-normal border-r border-gray-200">
+                        <h2 className='flex items-center'>  Periodic Maintenance   <ChevronsUpDown className="text-[#84838A] w-4 h-4 flex-none"  /></h2>
                         </th>
         
-                        <th scope="col" class="px-6 py-3 font-normal">
+                        <th scope="col" className="px-6 py-3 font-normal">
                            Score
                         </th>
-                        <th scope="col" class="px-6 py-3 font-normal">
+                        <th scope="col" className="px-6 py-3 font-normal">
                           status
                         </th>
-                        <th scope="col" class="px-6 py-3 font-normal">
+                        <th scope="col" className="px-6 py-3 font-normal">
                           Action
                         </th>
                     </tr>
@@ -124,6 +129,7 @@ export default function EvaluationScore(){
             </table>
         </div>
         
+                  </div>
                   </div>
               </body>
 

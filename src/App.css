@@ -1,3 +1,22 @@
+
+
+
+@import "tailwindcss";
+@theme {
+  --color-white-100: #FFFFFF;
+  --color-gray-border1:#E4E4E4;
+  --color-white-200:#FCFCFC;
+  --color-gray-border:#F1F1F1;
+
+  --color-text-gray:#84838A;
+
+  --color-green-200:#3F9A26;
+
+  --font-inter: Inter;
+}
+
+
+
 /* #root {
   max-width: 1280px;
   margin: 0 auto;

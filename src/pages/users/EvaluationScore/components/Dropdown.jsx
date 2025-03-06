@@ -3,9 +3,9 @@ import { ChevronDown } from 'lucide-react';
 export default function Dropdown(props){
     return(
         
-        <button className=" flex w-auto border-2  px-[6px]  py-[8px] border-gray-100 rounded-[10px] ml-2 mt-3  gap-2 justify-center items-center hover:bg-gray-100">
-        <p classname="text-gray-300">{props.text}</p>
-        <ChevronDown className='mt-1 w-6 h-6' color="#a62708" />
+        <button className="font-inter flex w-auto border-[1.5px]  py-2.5  pr-2.5 pl-3 border-gray-border rounded-[8px]  mt-3  gap-2 justify-center items-center hover:bg-gray-100">
+        <h1 className="text-text-gray text-xs/4">{props.text}</h1>
+        <ChevronDown className=' w-5 h-5' color="#a62708" />
         </button>
         
     )
