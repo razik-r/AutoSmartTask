@@ -3,15 +3,15 @@ import SearchComponent from './Searchcomponent'
 import Dropdown from './Dropdown'
 import Tablecontent from './Tablecontent'
 import TermComponent from './TermComponent'
-import { Bolt ,CircleAlert,CircleCheck ,ChevronsUpDown,Trophy} from 'lucide-react'; 
+import { Bolt ,CircleAlert,CircleCheck ,ChevronsUpDown,Trophy, CircleEllipsis} from 'lucide-react'; 
 
 
 
 const data=[
-    { name:"Ebrahim Khalil kano", id:"#C1234" ,value:"12", className:"bg-blue-200 text-blue-400", btntext:"Pending"},
-    { name:"Alolya Jeddah", id:"#C2345" ,value:"12", className:"bg-orange-200 text-orange-400", btntext:"Ongoing"},
-    { name:"Ebrahim Khalil kano", id:"#C1234" ,value:"12", className:"bg-violet-200 text-violet-400", btntext:"Approval"},
-    { name:"Ebrahim Khalil kano", id:"#C1234" ,value:"12", className:"bg-green-200 text-green-400", btntext:"Submitted"},
+    { name:"Ebrahim Khalil kano", id:"#C1234" ,value:"12", className:"bg-[#C5E2F1] text-[#138CC9]", btntext:"Pending"},
+    { name:"Alolya Jeddah", id:"#C2345" ,value:"12", className:"bg-[#FFECD6] text-[#ED8F22]", btntext:"Ongoing"},
+    { name:"Ebrahim Khalil kano", id:"#C1234" ,value:"12", className:"bg-[#EBDEEF] text-[#805EC5]", btntext:"Approval"},
+    { name:"Ebrahim Khalil kano", id:"#C1234" ,value:"12", className:"bg-[#D7EECA] text-[#3F9A26]", btntext:"Submitted"},
 
    ]
 
@@ -53,7 +53,7 @@ export default function EvaluationScore(){
                               <h2 className="text-text-gray text-xs">Ongoing</h2>
                               <h2 classname="text-sm">12</h2>
 
-                              <CircleAlert className='w-7 h-7' color="#082fa6" /> 
+                              <CircleEllipsis className='w-7 h-7' color="#292D32" /> 
                               <h2 className="text-text-gray text-xs">Approval</h2>
                               <h2 classname="text-sm">12</h2>
 

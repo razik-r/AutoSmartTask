@@ -24,11 +24,11 @@ export default function Tablecontent(props){
                 <td className="px-6 py-4  text-gray-400 ">
                     {props.value}
                 </td>
-                <td className="px-6 py-4 flex gap-1 font-medium text-lg items-center">
+                <td className="px-6 py-4 flex gap-1 font-medium text-sm/4.5 items-center">
                     70<Trophy size={20} color="#bd0505" />
                 </td>
-                <td className="px-6 py-4 font-medium">
-                  <h1 className={`py-1 px-1.5  border border-white rounded-[8px] text-center ${props.className}`}>{props.btntext}</h1>
+                <td className="px-8 py-4 font-medium text-[10px]/3.5">
+                  <h1 className={`py-1 px-1.5  border border-white rounded-[4px] text-center ${props.className}`}>{props.btntext}</h1>
                     
                 </td>
                 <td className="px-6 py-4 text-right flex space-x-2">
