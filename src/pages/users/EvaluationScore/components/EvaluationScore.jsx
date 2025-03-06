@@ -37,17 +37,17 @@ export default function EvaluationScore(){
                       <SearchComponent/>
                     </div>
         
-                    <div className="flex flex-wrap gap-1 sm:gap-x-4 justify-center items-center">
+                    <div className="flex flex-wrap gap-1 sm:gap-x-4 justify-center items-center ">
                     <Dropdown text="Auditor" />
                     <Dropdown text="Region" />
                     <Dropdown text="Type" />
                     <Dropdown text="Outlet"/>
                     <Dropdown text="Status" />
         
-                            <div className="ml-auto  max-h-7   font-inter py-1.5 flex flex-wrap  justify-center items-center gap-2 ">
+                            <div className="ml-auto  max-h-7 mb-4 sm:mb-0  font-inter py-1.5 flex flex-wrap flex-shrink justify-center  items-center  sm:gap-2 ">
 
                             <CircleAlert className='w-7 h-7'  color="#138CC9" /> 
-                              <h2 className="text-text-gray text-xs font-normal">Pending</h2>
+                              <h2 className="text-text-gray text-xs  font-normal">Pending</h2>
                               <h2 classname="text-sm font-normaln">12</h2>
 
                               <Bolt className='w-7 h-7' color="#ED8F22" />
