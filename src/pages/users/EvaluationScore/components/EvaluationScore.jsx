@@ -46,19 +46,19 @@ export default function EvaluationScore(){
         
                             <div className="ml-auto  max-h-7   font-inter py-1.5 flex flex-wrap  justify-center items-center gap-2 ">
 
-                            <CircleAlert className='w-7 h-7'  color="#082fa6" /> 
+                            <CircleAlert className='w-7 h-7'  color="#138CC9" /> 
                               <h2 className="text-text-gray text-xs font-normal">Pending</h2>
-                              <h2 classname="text-sm font-normal">12</h2>
+                              <h2 classname="text-sm font-normaln">12</h2>
 
-                              <Bolt className='w-7 h-7' color="#d45602" />
+                              <Bolt className='w-7 h-7' color="#ED8F22" />
                               <h2 className="text-text-gray text-xs">Ongoing</h2>
                               <h2 classname="text-sm">12</h2>
 
-                              <CircleEllipsis className='w-7 h-7' color="#292D32" /> 
+                              <CircleEllipsis className='w-7 h-7' color="#805EC5" /> 
                               <h2 className="text-text-gray text-xs">Approval</h2>
                               <h2 classname="text-sm">12</h2>
 
-                              <CircleCheck className='w-7 h-7' color="#209608" />
+                              <CircleCheck className='w-7 h-7' color="#3F9A26" />
                               <h2 className="text-text-gray text-xs">Submitted</h2>
                               <h2 classname="">12</h2>
 

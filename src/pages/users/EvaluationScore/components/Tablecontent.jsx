@@ -25,7 +25,7 @@ export default function Tablecontent(props){
                     {props.value}
                 </td>
                 <td className="px-3 py-4 flex gap-1 font-medium text-sm/4.5 items-center">
-                    70<Trophy className='w-4 h-4 text-trophy-red' size={20} color="#bd0505" />
+                    70<Trophy className='w-4 h-4 text-trophy-red mb-[1px]'  color="#bd0505" />
                 </td>
                 <td className="px-3 py-4 font-medium text-[10px]/3.5 ">
                   <h1 className={`py-1 px-1.5  border border-white rounded-[4px] text-center ${props.className}`}>{props.btntext}</h1>
@@ -33,10 +33,10 @@ export default function Tablecontent(props){
                 </td>
                 <td className="px-3 py-4 text-right flex space-x-2">
                 <button className="hover:drop-shadow-lg" >
-                <Eye color="#676565" />
+                <Eye className='h-5 w-5' color="#B5B5B5" />
                 </button>
                 <button >
-                <FileText color="#676565" />
+                <FileText className='h-5 w-5' color="#B5B5B5" />
                 </button>  
                 </td>
                 </>
