@@ -21,6 +21,11 @@
   --font-inter: Inter;
 }
 
+@utility shadowbox {
+    box-shadow: 0px 10px 16px 0px #0000000A;
+
+}
+
 
 
 
