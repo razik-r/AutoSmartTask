@@ -22,7 +22,7 @@ export default function EvaluationScore(){
 
         <>
 
-        <body className='min-h-full bg-[#FCFCFC] mx-[16px] my-5 '>
+        <body className='min-h-full bg-[#FCFCFC] px-6 py-4 '>
         
                 <div className="min-w-full min-h-17 py-3 flex items-center size-11 bg-[#FFFFFF] mb-3 border border-gray-border1 rounded-[12px] shadowbox">
                     <div className="p-3 ml-3  bg-[#FCECEA] border border-[#FFCCC5] rounded-[12px]"><Trophy className='size-6' color="#E14026" /></div>
@@ -30,7 +30,7 @@ export default function EvaluationScore(){
                     <h2 className='ml-4 text text-text-gray text-xs/4 '>Lorem Ipsum</h2></div>
                 </div>
                 
-                  <div className="min-h-[564px]  rounded-[16px] border-[1.5px] p-3 bg-white border-gray-border1   ">
+                  <div className="min-h-[564px]  rounded-[16px] border-[1.5px] p-4 bg-white border-gray-border1   ">
         
                     <div className="flex items-end">
                       <TermComponent/>
@@ -105,9 +105,9 @@ export default function EvaluationScore(){
                         </th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody className='max-h-16'>
                 {items.map((item) => (
-            <tr key={item.id} className="hover:bg-gray-50 border-b border-gray-border1  ">
+            <tr key={item.id} className="hover:bg-gray-50  border-b border-gray-border1">
               <Tablecontent
                 id={item.id}
                 name={item.name}
