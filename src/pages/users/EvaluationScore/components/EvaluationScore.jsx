@@ -8,10 +8,10 @@ import { Bolt ,CircleAlert,CircleCheck ,ChevronsUpDown,Trophy, CircleEllipsis} f
 
 
 const data=[
-    { name:"Ebrahim Khalil kano", id:"#C1234" ,value:"12", className:"bg-[#C5E2F1] text-[#138CC9]", btntext:"Pending"},
-    { name:"Alolya Jeddah", id:"#C2345" ,value:"12", className:"bg-[#FFECD6] text-[#ED8F22]", btntext:"Ongoing"},
-    { name:"Ebrahim Khalil kano", id:"#C1234" ,value:"12", className:"bg-[#EBDEEF] text-[#805EC5]", btntext:"Approval"},
-    { name:"Ebrahim Khalil kano", id:"#C1234" ,value:"12", className:"bg-[#D7EECA] text-[#3F9A26]", btntext:"Submitted"},
+    { name:"Ebrahim Khalil kano", id:"#C1234" ,value:"12", className:"bg-[#C5E2F1] text-[#138CC9]", btntext:"Pending" , color:"text-[#E14026]" ,color2:"text-[#805EC5]"  ,color3:"text-[#3F9A26]"},
+    { name:"Alolya Jeddah", id:"#C2345" ,value:"12", className:"bg-[#FFECD6] text-[#ED8F22]", btntext:"Ongoing",color:"text-[#138CC9]" , color3:"text-[#212121]" },
+    { name:"Ebrahim Khalil kano", id:"#C1234" ,value:"12", className:"bg-[#EBDEEF] text-[#805EC5]", btntext:"Approval",color3:"text-[#E14026]"},
+    { name:"Ebrahim Khalil kano", id:"#C1234" ,value:"12", className:"bg-[#D7EECA] text-[#3F9A26]", btntext:"Submitted", color:"text-[#805EC5]",color2:"text-[#3F9A26]" , color3:"text-[#E14026]" },
 
    ]
 
@@ -114,6 +114,9 @@ export default function EvaluationScore(){
                 value={item.value}
                 className={item.className}
                 btntext={item.btntext}
+                color1={item.color}
+                color2={item.color2}
+                color3={item.color3}
               />
             </tr>
           ))}

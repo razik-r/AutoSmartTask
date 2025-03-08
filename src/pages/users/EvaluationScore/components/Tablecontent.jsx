@@ -1,5 +1,7 @@
 import { Eye,FileText,Trophy } from 'lucide-react';
+import Avatar from './Avatar';
 export default function Tablecontent(props){
+    console.log("Color prop:", props);
     return(
     <>
     <th scope="row" class=" py-3  flex font-normal font-inter text-xs ml-2.5 text-black-table whitespace-nowrap justify-start items-start gap-2">
@@ -8,8 +10,15 @@ export default function Tablecontent(props){
                 <p className="ml-2 text-gray-400 font-normal text-[10px]">{props.id}</p></div>
                    
                 </th>
-                <td className="p-3 text-gray-400 text-center">
-                    EK
+                <td className="p-3 text-gray-400 text-center  ">
+                   
+                    <Avatar 
+                  initials="EK" 
+                  color={props.color1}
+                  color2={props.color2}
+                  color3={props.color3}
+                />
+                 
                 </td>
                 <td class="px-3 py-3 text-gray-400 text-left">
                     {props.value}
