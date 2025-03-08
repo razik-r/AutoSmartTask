@@ -41,7 +41,11 @@ export default function Tablecontent(props){
                     {props.value}
                 </td>
 
-                <td className="px-3 py-4 h-16 w-15.25  font-medium text-sm/4.5 items-center border-l  border-gray-border1   bg-[#FFFFFF] shadow-2xl  sticky right-[160px] z-10    ">
+                <td className="px-3 py-4 h-16 w-15.25  font-medium text-sm/4.5 items-center border-l  border-gray-border1   bg-[#FFFFFF]  sticky right-[160px] z-10 
+                
+                drop-shadow-xl
+                
+                ">
                    <div className='flex gap-2.5 '> 70<Trophy className='w-4 h-4 text-trophy-red mb-[1px]'  color="#bd0505" /></div>
                 </td>
                
