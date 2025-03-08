@@ -90,24 +90,33 @@ export default function EvaluationScore(){
                         <th scope="col" className="px-3 py-3 font-normal min-w-[99px]">
                         <h2 className='flex items-center gap-2'>    Battery Bussiness <ChevronsUpDown className="text-[#84838A] w-4 h-4 flex-none"  /></h2>
                         </th>
-                        <th scope="col" className="px-3 py-3 font-normal border-r border-gray-200 min-w-[121px] ">
+                        <th scope="col" className="px-3 py-3 font-normal  border-gray-200 min-w-[121px] ">
                         <h2 className='flex items-center gap-2'>  Periodic Maintenance   <ChevronsUpDown className="text-[#84838A] w-4 h-4 flex-none"  /></h2>
                         </th>
+                        <th scope="col" className="px-3 py-3 font-normal min-w-[99px] ">
+                        <h2 className='flex items-center gap-2'>    Tire Bussiness <ChevronsUpDown className="text-[#84838A] w-4 h-4 flex-none"  /></h2>
+                        </th>
+
+                        <th scope="col" className="px-3 py-3 font-normal  border-gray-200 min-w-[121px]  ">
+                        <h2 className='flex items-center gap-2'>  Periodic Maintenance   <ChevronsUpDown className="text-[#84838A] w-4 h-4 flex-none"  /></h2>
+                        </th>
+                        
+                        
         
-                        <th scope="col" className="px-3 py-3 font-normal min-w-15.25 ">
+                        <th scope="col" className="px-3 py-3 font-normal min-w-15.25 text-center border-l border-gray-border1 shadowborder   bg-[#F6F6F6]  sticky right-[160px] z-10">
                            Score
                         </th>
-                        <th scope="col" className="px-3 py-3 font-normal min-w-22.5 text-center">
+                        <th scope="col" className="px-3 py-3 font-normal min-w-22.5 text-center  bg-[#F6F6F6] sticky right-[70px] z-10 ">
                           Status
                         </th>
-                        <th scope="col" className="px-3 py-3 font-normal text-center min-w-19">
+                        <th scope="col" className="px-3 py-3 font-normal text-center  min-w-19  bg-[#F6F6F6] sticky right-[0px] z-10  ">
                           Action
                         </th>
                     </tr>
                 </thead>
-                <tbody className='max-h-16'>
+                <tbody className=''>
                 {items.map((item) => (
-            <tr key={item.id} className="hover:bg-gray-50  border-b border-gray-border1">
+            <tr key={item.id} className=" hover:bg-gray-50  ">
               <Tablecontent
                 id={item.id}
                 name={item.name}
@@ -121,7 +130,6 @@ export default function EvaluationScore(){
             </tr>
           ))}
         
-                    <div className="border-r border-gray-300"></div>
                 </tbody>
             </table>
         </div>
