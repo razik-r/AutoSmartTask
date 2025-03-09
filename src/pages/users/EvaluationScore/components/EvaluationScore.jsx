@@ -71,7 +71,7 @@ export default function EvaluationScore(){
         
         
         <div className="mt-4 border-[1.5px] border-gray-border1  rounded-[12px] overflow-hidden">
-        <div className="overflow-x-auto ">
+        <div className="overflow-x-auto   ">
             <table className="w-full text-sm text-left rtl:text-right text-black-table [&_tr>td:nth-child(9)]:shadowborder">
                 <thead className="p-3 h-15 ">
                     <tr className="border-b-1 border-gray-border1  bg-[#F6F6F6] text-xs font-inter   ">
@@ -116,7 +116,7 @@ export default function EvaluationScore(){
                 </thead>
                 <tbody className=''>
                 {items.map((item) => (
-            <tr key={item.id} className=" hover:bg-gray-50   ">
+            <tr key={item.id} className=" hover:bg-gray-50   border-b  border-gray-border1">
               <Tablecontent
                 id={item.id}
                 name={item.name}

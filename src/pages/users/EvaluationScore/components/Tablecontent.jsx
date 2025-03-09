@@ -1,4 +1,4 @@
-import { Eye,FileText,Trophy } from 'lucide-react';
+import { Eye,FileText,Trophy ,ScanEye} from 'lucide-react';
 import Avatar from './Avatar';
 export default function Tablecontent(props){
     console.log("Color prop:", props);
@@ -56,14 +56,26 @@ export default function Tablecontent(props){
 
                 <td className="px-3 py-4 h-16 w-19 text-right   bg-[#FFFFFF] sticky right-[0px] z-10 ">
                <div className='flex  gap-2.5 justify-center items-center'>
-               <button className="hover:drop-shadow-lg " >
-                <Eye className='size-5' color="#B5B5B5" />
+
+            <div className="group flex text-center">
+               <button >
+                
+
+                <Eye className='size-5 group-hover:hidden' color="#B5B5B5" />
+
+        
                 </button>
-                <button className=''>
+
+                <button>
+                <ScanEye className=" size-5 hidden group-hover:block" color="#B5B5B5"  />
+                </button>
+                </div>
+                <button >
                 <FileText className='size-5' color="#B5B5B5" />
                 </button> 
                 </div> 
                 </td>
+
 
                 </>
     )
