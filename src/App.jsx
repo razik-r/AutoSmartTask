@@ -3,6 +3,8 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import EvaluationScore from './pages/users/EvaluationScore/components/EvaluationScore'
+import RequiredAction from './pages/users/EvaluationScore/components/RequiredAction'
+import ExpandView from './pages/users/EvaluationScore/components/ExpandView'
 // import SearchComponent from './pages/users/EvaluationScore/components/Searchcomponent'
 // import Dropdown from './pages/users/EvaluationScore/components/Dropdown'
 // import Tablecontent from './pages/users/EvaluationScore/components/Tablecontent'
@@ -12,14 +14,34 @@ import EvaluationScore from './pages/users/EvaluationScore/components/Evaluation
 function App() {
 
 
- 
-  return (
-    <>
-    
-<EvaluationScore/>
+//  const [isRendered, setIsRendered] = useState(false);
 
-    </>
+//  // 2. Function to render the component
+//  const renderComponent = (True) => {
+//    setIsRendered(True);
+   
+//  };
+ 
+//   return (
+//     <>
+    
+// {/* <EvaluationScore/> */}
+
+
+
+// { isRendered ? <ExpandView/>:  <RequiredAction/>     }
+
+
+
+
+
+  return(
+
+    <RequiredAction/>
+
+
   )
+ 
 }
 
 export default App

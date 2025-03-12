@@ -24,6 +24,7 @@
 
 
 
+
 }
 
 @utility shadowbox {
@@ -35,10 +36,12 @@
   box-shadow:drop-shadow( -10px 0px 16px 0px #0000000F;)
 }
 ::-webkit-scrollbar{
+
   height:14px;
   width:14px;
   border:1px;
   border-radius:4px;
+  margin:10px;
   
   
 }
@@ -47,8 +50,8 @@
   background-color: #F3F3F3;
  
 
-  border-radius: 5px; /* Rounded corners */
-  margin: 4px 0; /* Add margin to create padding effect */
+  border-radius: 5px; 
+  margin: 4px 0; 
  
 }
 
@@ -56,9 +59,9 @@
   background-color: #B5B5B5;
 
  
-  border-radius: 5px; /* Rounded corners */
-  border: 3px solid transparent; /* Transparent border to create padding effect */
-  background-clip: content-box; /* Clip the background to the content box */
+  border-radius: 5px; 
+  border: 3px solid transparent; 
+  background-clip: content-box; 
 }
 
 
