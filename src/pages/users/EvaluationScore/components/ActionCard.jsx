@@ -1,12 +1,28 @@
 import ProblemImg from './Problemimg.png'
 import Auditor from './Auditor.png'
+
+import React, { useState } from 'react';
+import ActionCardModal from './ActionCardModal';
+
 export default function ActionCard(){
+
+    const [isOpen, setIsOpen] = useState(false);
+
+    const openPopup = () => {
+      setIsOpen(true);
+    };
+  
+    const closePopup = () => {
+      setIsOpen(false);
+    };
+
+
     return(
 
 
         <>
 
-<div className="max-w-[443px] h-[264px] bg-[#FFFFFF] border border-gray-border1 rounded-[12px] p-4 mt-6 flex flex-col gap-3 shadowbox ">
+<button  onClick={openPopup}      className="max-w-[443px] w-auto h-[264px] bg-[#FFFFFF] border border-gray-border1 rounded-[12px] p-4 mt-6 flex flex-col  gap-3 shadowbox ">
 
 <div className="flex flex-col gap-2  ">
     <div className="flex gap-2"><span><svg width="8" height="13" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -48,7 +64,13 @@ export default function ActionCard(){
     </div>   
 </div>
 
-</div>
+</button>
+
+{isOpen && (
+        <div className="fixed inset-1  bg-gray bg-opacity-80 backdrop-blur-sm flex items-center justify-center z-50 ">
+            <ActionCardModal onClose={closePopup} />
+        </div>
+)}
         
         </>
 

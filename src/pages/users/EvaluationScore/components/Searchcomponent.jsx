@@ -15,7 +15,7 @@ export default function Searchcomponent(){
     <input
       type="text"
       placeholder="Search"
-      className="text-gray-800 text-xs leading-4   bg-transparent outline-none placeholder-text-gray font-normal "
+      className="text-gray-600 text-xs leading-4   bg-transparent outline-none placeholder-[#212121] font-normal "
     />
   </div>
 </div>

@@ -14,27 +14,8 @@ import ExpandView from './pages/users/EvaluationScore/components/ExpandView'
 function App() {
 
 
-//  const [isRendered, setIsRendered] = useState(false);
 
-//  // 2. Function to render the component
-//  const renderComponent = (True) => {
-//    setIsRendered(True);
-   
-//  };
- 
-//   return (
-//     <>
-    
-// {/* <EvaluationScore/> */}
-
-
-
-// { isRendered ? <ExpandView/>:  <RequiredAction/>     }
-
-
-
-
-
+  
   return(
 
     <RequiredAction/>
