@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import QuarterSelector from "./QuarterSelector";
 import CenterSelector from "./CenterSelector";
 import ActionDropdown from "./ActionDropdown";
@@ -8,7 +8,7 @@ import ActionTable from "./ActionTable";
 import ActionCardGrid from "./ActionCardGrid";
 
 export default function ReportPage() {
-  const [selectedView, setSelectedView] = useState('List');
+  const [selectedView, setSelectedView] = useState("List");
 
   // Handle view change from the ToggleView component
   const handleViewChange = (newView) => {
@@ -31,8 +31,8 @@ export default function ReportPage() {
         <ToggleView onViewChange={handleViewChange} />
       </div>
 
-      {selectedView === 'List' && <ActionTable />}
-      {selectedView === 'Grid' && <ActionCardGrid />}
+      {selectedView === "List" && <ActionTable />}
+      {selectedView === "Grid" && <ActionCardGrid />}
     </>
   );
 }
