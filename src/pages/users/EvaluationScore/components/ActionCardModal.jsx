@@ -19,7 +19,7 @@ export default function ActionCardModal({onClose}){
 
 <>
 
-<div className="flex flex-wrap sm:flex-nowrap  max-w-[922px] h-full  sm:h-[412px]  p-4 border-2 border-gray-border1 rounded-[24px] bg-[#FFFFFF] gap-0 sm:gap-4 items-center ">
+<div className="flex flex-wrap sm:flex-nowrap  max-w-[922px] h-full  sm:h-[412px]  p-4 border-2 border-[#F1F1F1] rounded-[24px] bg-[#FFFFFF] gap-0 sm:gap-4 items-center ">
 
 
 

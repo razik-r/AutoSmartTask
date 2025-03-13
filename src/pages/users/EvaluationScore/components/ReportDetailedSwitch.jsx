@@ -14,7 +14,7 @@ const [selectedTab, setSelectedTab] = useState("Report");
 
 
     return (
-        <div className="flex justify-center items-center ">
+        <div className="flex justify-center items-center  ">
           
           <button
             onClick={() => handleTabChange('Report')}
@@ -25,7 +25,7 @@ const [selectedTab, setSelectedTab] = useState("Report");
             } transition-normal duration-150 ease-out `}
           >
     
-            <div className="flex justify-center items-center gap-1">
+            <div className="flex justify-center items-center gap-2">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 
          <path d="M13.4916 1.66675H6.50829C3.47496 1.66675 1.66663 3.47508 1.66663 6.50841V13.4917C1.66663
@@ -59,13 +59,13 @@ const [selectedTab, setSelectedTab] = useState("Report");
             } transition-normal duration-150 ease-linear`}
           >
     
-            <div className="flex justify-center items-center gap-1">
+            <div className="flex justify-center items-center gap-2 text-nowrap">
              <div className="size-5">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M7.7583 12.2501L9.0083 13.5001L12.3416 10.1667" stroke={selectedTab === 'Detailed' ? '#E14026' : '#B5B5B5'} stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M8.33329 5.00008H11.6666C13.3333 5.00008 13.3333 4.16675 13.3333 3.33341C13.3333 1.66675 12.5 1.66675 11.6666 1.66675H8.33329C7.49996 1.66675 6.66663 1.66675 6.66663 3.33341C6.66663 5.00008 7.49996 5.00008 8.33329 5.00008Z" stroke={selectedTab === 'Detailed' ? '#E14026' : '#B5B5B5'} stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M13.3333 3.3501C16.1083 3.5001 17.5 4.5251 17.5 8.33343V13.3334C17.5 16.6668 16.6667 18.3334 12.5 18.3334H7.5C3.33333 18.3334 2.5 16.6668 2.5 13.3334V8.33343C2.5 4.53343 3.89167 3.5001 6.66667 3.3501" stroke={selectedTab === 'Detailed' ? '#E14026' : '#B5B5B5'} stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.9582 1.66675H8.04155C7.17489 1.66675 6.46655 2.36675 6.46655 3.23341V4.01675C6.46655 4.88341 7.16655 5.58341 8.03322 5.58341H11.9582C12.8249 5.58341 13.5249 4.88341 13.5249 4.01675V3.23341C13.5332 2.36675 12.8249 1.66675 11.9582 1.66675Z" fill={selectedTab === 'Detailed' ? '#E14026' : '#B5B5B5'}/>
+<path d="M14.3667 4.01665C14.3667 5.34165 13.2834 6.42498 11.9584 6.42498H8.0417C6.7167 6.42498 5.63337 5.34165 5.63337 4.01665C5.63337 3.54998 5.13337 3.25832 4.7167 3.47498C3.5417 4.09998 2.7417 5.34165 2.7417 6.76665V14.6083C2.7417 16.6583 4.4167 18.3333 6.4667 18.3333H13.5334C15.5834 18.3333 17.2584 16.6583 17.2584 14.6083V6.76665C17.2584 5.34165 16.4584 4.09998 15.2834 3.47498C14.8667 3.25832 14.3667 3.54998 14.3667 4.01665ZM12.7834 10.6083L9.45003 13.9416C9.32503 14.0666 9.1667 14.125 9.00837 14.125C8.85003 14.125 8.6917 14.0666 8.5667 13.9416L7.3167 12.6916C7.07503 12.45 7.07503 12.05 7.3167 11.8083C7.55837 11.5666 7.95837 11.5666 8.20003 11.8083L9.00837 12.6166L11.9 9.72498C12.1417 9.48332 12.5417 9.48332 12.7834 9.72498C13.025 9.96665 13.025 10.3666 12.7834 10.6083Z" fill={selectedTab === 'Detailed' ? '#E14026' : '#B5B5B5'}/>
 </svg>
+
 </div>
 
       

@@ -4,7 +4,7 @@ export default function QuarterSelector(){
         <>
 
 
-<div className="border-[1.5px] max-w-73 sm:min-w-73 border-gray-border rounded-[8px] flex   max-h-14 p-2 font-inter sm:justify-between items-center">
+<div className="border max-w-73 sm:min-w-73 border-gray-border1 h-[53.6px] rounded-[8px] flex   max-h-14 p-2 font-inter sm:justify-between items-center">
 
     <div className="flex flex-col gap-1 justify-center items-start">
       <h1 className="font-medium text-xs leading-4 tracking-[-0.5%]">2025-Quarter 1</h1>

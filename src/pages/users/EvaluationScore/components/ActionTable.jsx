@@ -14,7 +14,7 @@ export default function ActionTable(){
     return(
 
         <>
-         <div className="mt-4 border-[1.5px] border-gray-border1  rounded-[12px] overflow-hidden">
+         <div className="mt-4 border border-gray-border1  rounded-[12px] overflow-hidden">
         <div className="overflow-x-auto   ">
             <table className="w-full text-sm text-left rtl:text-right text-black-table ">
                 <thead className="p-3 h-10.5 ">

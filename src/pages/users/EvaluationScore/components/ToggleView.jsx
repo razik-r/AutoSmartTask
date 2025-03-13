@@ -9,15 +9,15 @@ const ToggleView = ({ onViewChange }) => {
   };
 
   return (
-    <div className="border border-gray-border1 h-10 min-w-35 text-xs py-1 pr-2 pl-1 gap-1 bg-[#F9F9F9] rounded-lg flex justify-center items-center ">
+    <div className="border border-gray-border h-10 min-w-35 text-xs py-1 pr-1 pl-1 gap-[11px] bg-[#F9F9F9] rounded-lg flex justify-center items-center ">
       
       <button
         onClick={() => handleViewChange('List')}
         className={`w-16.25 h-8 rounded-[6px] px-2 py-1  ${
           selectedView === 'List'
-            ? 'bg-[#FFFFFF] text-[#212121]     border border-gray-border1' // Active state
+            ? 'bg-[#FFFFFF] text-[#212121]     border border-gray-border' // Active state
             : ' text-[#B5B5B5] ' // Inactive state
-        } transition-normal duration-150 ease-out `}
+        } transition-normal duration-10 ease-linear `}
       >
 
         <div className="flex justify-center items-center gap-1">
@@ -40,11 +40,11 @@ const ToggleView = ({ onViewChange }) => {
       {/* grid Button */}
       <button
         onClick={() => handleViewChange('Grid')} 
-        className={`w-16.25 h-8 rounded-[6px] px-2 py-1  ${
+        className={`w-17 h-8 rounded-[6px] px-2 py-1  ${
           selectedView === 'Grid'
-            ? 'bg-[#FFFFFF] text-[#212121]     border border-gray-border1' // Active state
+            ? 'bg-[#FFFFFF] text-[#212121]     border border-gray-border shadowbox' // Active state
             : ' text-[#B5B5B5]' // Inactive state
-        } transition-normal duration-150 ease-linear`}
+        } transition-normal duration-10 ease-linear`}
       >
 
         <div className="flex justify-center items-center gap-1">
