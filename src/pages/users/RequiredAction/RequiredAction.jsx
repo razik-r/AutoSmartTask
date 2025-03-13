@@ -1,16 +1,16 @@
 
 
-import QuarterSelector from './QuarterSelector'
+// import QuarterSelector from './RequiredAction/components/QuarterSelector'
 
-import CenterSelector from './CenterSelector'
+// import CenterSelector from './RequiredAction/components/CenterSelector'
 
-import ActionDropdown from './ActionDropdown'
+// import ActionDropdown from './RequiredAction/components/ActionDropdown'
 
-import SearchComponent from './Searchcomponent'
-import ToggleView from './ToggleView'
+// import SearchComponent from './RequiredAction/components/Searchcomponent'
+// import ToggleView from './RequiredAction/components/ToggleView'
 
-import ActionCard from './ActionCard'
-import ActionCardGrid from './ActionCardGrid'
+// import ActionCard from './RequiredAction/components/ActionCard'
+// import ActionCardGrid from './RequiredAction/components/ActionCardGrid'
 
 
 
@@ -18,11 +18,11 @@ import React, { useState } from 'react';
 
 
 
-import ActionTable from './ActionTable'
-import ActionHeader from './ActionHeader'
-import ReportDetailedSwitch from './ReportDetailedSwitch'
-import ReportPage from './ReportPage'
-import ExpandView from './ExpandView'
+// import ActionTable from './RequiredAction/components/ActionTable'
+import ActionHeader from './components/ActionHeader'
+import ReportDetailedSwitch from './components/ReportDetailedSwitch'
+import ReportPage from './components/ReportPage'
+import ExpandView from './components/ExpandView'
 
 export default function RequiredAction(){
 
@@ -66,8 +66,5 @@ const handleTabChange =(newTab)=>{
         
         </>
     )
-
-             
-
 
 }

@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import SearchComponent from './Searchcomponent'
-import Dropdown from './Dropdown'
-import Tablecontent from './Tablecontent'
-import TermComponent from './TermComponent'
+import SearchComponent from '../RequiredAction/components/Searchcomponent'
+import Dropdown from './components/Dropdown'
+import Tablecontent from './components/Tablecontent'
+import TermComponent from './components/TermComponent'
 import { Bolt ,CircleAlert,CircleCheck ,ChevronsUpDown,Trophy, CircleEllipsis} from 'lucide-react'; 
 
 
