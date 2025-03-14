@@ -22,6 +22,7 @@
   /* --shadow-xl: 3px 1px 1px 1px rgba(0, 0, 0, 0.25); */
 
  
+  
 
 
 
@@ -32,14 +33,25 @@
     box-shadow: 0px 10px 16px 0px #0000000A;
 
 }
+@utility shadowbox1 {
+  box-shadow: 0px 10px 16px 0px #0000004D;
+
+}
+
+
+
+ 
+
 
 @utility shadowborder{
   box-shadow:drop-shadow( -10px 0px 16px 0px #0000000F;)
 }
+
+
 ::-webkit-scrollbar{
 
   height:14px;
-  width:14px;
+  width:8px;
   border:1px;
   border-radius:4px;
   margin:10px;
@@ -48,7 +60,7 @@
 }
 
 ::-webkit-scrollbar-track{
-  background-color: #F3F3F3;
+  background-color: #FFFF;
  
 
   border-radius: 5px; 

@@ -3,8 +3,8 @@ import { Search } from "lucide-react";
 export default function Searchcomponent() {
   return (
     <>
-      <div className="ml-auto flex justify-end font-inter  max-h-10">
-        <div className="flex flex-col flex-wrap px-2.5 py-3 h-10 w-35 border gap-2 border-gray-border rounded-[8px]  justify-start items-center">
+      <div className="ml-auto   font-inter  max-h-10 max-w-35">
+        <div className="flex flex-col flex-wrap px-2.5 py-3 h-10  border gap-2 border-gray-border rounded-[8px]  justify-start items-center">
           <svg
             width="16"
             height="16"
@@ -31,7 +31,7 @@ export default function Searchcomponent() {
           <input
             type="text"
             placeholder="Search"
-            className="text-gray-600 text-xs leading-4   bg-transparent outline-none placeholder-[#212121] font-normal "
+            className="text-gray-600 text-xs leading-4  bg-transparent outline-none placeholder-[#212121] font-normal "
           />
         </div>
       </div>

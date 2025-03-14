@@ -12,7 +12,7 @@ export default function ReportDetailedSwitch({ onTabChange }) {
     <div className="flex justify-center items-center  ">
       <button
         onClick={() => handleTabChange("Report")}
-        className={`w-[89px] h-9 p-2  text-sm/4.5 font-medium ${
+        className={`px-4 py-2   text-sm/4.5 font-medium ${
           selectedTab === "Report"
             ? "bg-[#FFFFFF] text-[#E14026]     border-b-[1.5px] border-[#FF0000]" // Active state
             : " text-[#B5B5B5] border-b border-[#F1F1F1] " // Inactive state
@@ -48,7 +48,7 @@ export default function ReportDetailedSwitch({ onTabChange }) {
       {/* grid Button */}
       <button
         onClick={() => handleTabChange("Detailed")}
-        className={`w-[136px] h-9 p-2   text-sm/4.5 font-medium ${
+        className={`px-4 py-2    text-sm/4.5 font-medium ${
           selectedTab === "Detailed"
             ? "bg-[#FFFFFF] text-[#E14026] text-nowrap    border-b-[1.5px] border-[#FF0000]" // Active state
             : " text-[#B5B5B5] border-b border-[#F1F1F1]" // Inactive state
