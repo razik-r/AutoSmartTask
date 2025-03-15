@@ -33,7 +33,7 @@ export default function Dropdown(props) {
 
       {/* Dropdown Content */}
       {isOpen && (
-        <div className="absolute mt-2 min-w-35 rounded-[12px] border-[1.5px] bg-[#FFFFFF] border-gray-border1 shadowbox">
+        <div className="absolute mt-2 min-w-35 rounded-[12px] border-[1.5px] bg-[#FFFFFF] border-gray-border1 shadowbox z-999">
           <div className="p-2">
             <a
               href="#"

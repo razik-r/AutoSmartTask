@@ -99,7 +99,7 @@ export default function CenterSelector() {
                 className={`${selectedOption.bgcolor} rounded-[4px] p-1 min-w-15.25 max-h-[15px] flex justify-center items-center`}
               >
                 <h2
-                  className={`${selectedOption.textcolor} text-[10px]  font-normal leading-3`}
+                  className={`${selectedOption.textcolor} text-[10px] text-nowrap font-normal leading-3`}
                 >
                   {selectedOption.indicator}
                 </h2>
@@ -141,7 +141,7 @@ export default function CenterSelector() {
           )}
         </button>
         {isOpen && (
-          <div className="absolute p-4 max-w-73 sm:min-w-73 mt-1 border border-gray-border1 flex flex-col z-999 bg-[#FFFFFF] rounded-lg overflow-y-scroll max-h-[calc(100vh-200px)] shadowbox1  ">
+          <div className="absolute p-4 min-w-3/4 max-h-63 sm:max-h-none sm:min-w-73 mt-1 border border-gray-border1 flex flex-col z-999 bg-[#FFFFFF] rounded-lg overflow-y-scroll  shadowbox1  ">
             <div className="flex px-2.5 py-3 justify-between rounded-lg border border-gray-border -mt-2 mb-2 gap-2">
               <svg
                 width="16"
