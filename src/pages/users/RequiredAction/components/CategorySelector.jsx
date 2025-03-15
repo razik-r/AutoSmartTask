@@ -68,16 +68,16 @@ export default function CategorySelector() {
 
       {/* Dropdown Menu */}
       {isOpen && (
-        <div className="absolute right-0   flex flex-col   rounded-lg border border-gray-border1  text-text-gray   text-xs/4 bg-[#FFFFFF] shadowbox1 hover:cursor-pointer">
+        <div className="absolute right-0  min-w-2/4 flex flex-col   rounded-lg border border-gray-border1  text-text-gray   text-xs/4 bg-[#FFFFFF] shadowbox1 hover:cursor-pointer">
           {options.map((option) => (
             <div
               key={option.id}
-              className={`flex items-center justify-between py-2.5 px-3 text-nowrap ${
+              className={`flex items-center justify-start py-2.5 px-4  text-nowrap ${
                 selectedOption === option.id ? "bg-neutral-100 text-[#212121] gap-2" : ""
               }`}
               onClick={() => handleOptionClick(option.id)}
             >
-              <p className="text-xs/4">{option.value}</p>
+              <p className="  text-xs/4">{option.value}</p>
               {selectedOption === option.id && (
                 <svg
                   width="12"

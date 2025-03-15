@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import CategorySelector from "./CategorySelector";
 
 export default function CenterSelector() {
+  const [searchInput, setSearchInput] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+ 
   const [selectedOption, setSelectedOption] = useState({
     id: 1,
     value: "Al Naseem Center (TH)",
@@ -14,10 +16,13 @@ export default function CenterSelector() {
     setIsOpen(!isOpen);
   };
   const handleOptionClick = (option) => {
-    setSelectedOption(option); //
+    setSelectedOption(option); 
     setIsOpen(false);
   };
-
+  const handleSearchInputChange = (event) => {
+    setSearchInput(event.target.value);
+  };
+ 
   const options = [
     {
       id: 1,
@@ -63,12 +68,17 @@ export default function CenterSelector() {
     },
   ];
 
+  const filteredOptions = options.filter((option) =>
+    option.value.toLowerCase().includes(searchInput.toLowerCase())
+  );
+
+
   return (
     <>
       <div className="relative">
         <button
           onClick={toggleDropdown}
-          className="border max-w-73 sm:min-w-73 border-gray-border1 rounded-[8px] flex   max-h-14 p-2 font-inter   sm:justify-between items-center hover:cursor-pointer"
+          className="border max-w-73 sm:min-w-73 border-gray-border1 rounded-[8px] flex   max-h-14 p-2 font-inter   sm:justify-between items-center hover:cursor-pointer "
         >
           <div className="flex flex-col gap-1 justify-center items-start">
             <h1 className="font-medium text-xs leading-4 tracking-[-0.5%]">
@@ -131,7 +141,7 @@ export default function CenterSelector() {
           )}
         </button>
         {isOpen && (
-          <div className="absolute p-4 max-w-73 sm:min-w-73 mt-1 border border-gray-border1 flex flex-col z-999 bg-[#FFFFFF] rounded-lg overflow-y-scroll max-h-[calc(100vh-200px)]  ">
+          <div className="absolute p-4 max-w-73 sm:min-w-73 mt-1 border border-gray-border1 flex flex-col z-999 bg-[#FFFFFF] rounded-lg overflow-y-scroll max-h-[calc(100vh-200px)] shadowbox1  ">
             <div className="flex px-2.5 py-3 justify-between rounded-lg border border-gray-border -mt-2 mb-2 gap-2">
               <svg
                 width="16"
@@ -160,6 +170,9 @@ export default function CenterSelector() {
                 type="text"
                 placeholder="Search Centers"
                 className="text-xs bg-transparent outline-none placeholder-[#84838A] font-normal text-gray-600 w-full "
+                value={searchInput}
+                onChange={handleSearchInputChange}
+
               />
             </div>
 
@@ -192,7 +205,7 @@ export default function CenterSelector() {
                 </div>
               </div>
 
-              {options
+              {filteredOptions
                 .filter((option) => option.id !== selectedOption.id)
                 .map((option) => (
                   <div

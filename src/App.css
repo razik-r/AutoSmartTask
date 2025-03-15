@@ -39,10 +39,6 @@
 }
 
 
-
- 
-
-
 @utility shadowborder{
   box-shadow:drop-shadow( -10px 0px 16px 0px #0000000F;)
 }
