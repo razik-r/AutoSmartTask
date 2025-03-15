@@ -27,30 +27,48 @@ export default function CategorySelector() {
   return (
     <div className="relative">
       {/* Dropdown Button */}
-      <div className="flex w-full items-center justify-between py-2.5 pr-2.5 pl-3 border border-[#FFCCC5] rounded-lg">
+      <div className="flex w-full  items-center justify-between py-2.5 pr-2.5 pl-3 border border-[#FFCCC5] rounded-lg">
         <h1 className="text-xs/4 text-text-gray">Category Select</h1>
-        <button onClick={toggleDropdown}>
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M15 7.5L10 12.5L5 7.5"
-              stroke="#E14026"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+        <button onClick={toggleDropdown} className="hover:cursor-pointer">
+        {!isOpen ? (
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15 7.5L10 12.5L5 7.5"
+                stroke="#E14026"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          ) : (
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15 12.5L10 7.5L5 12.5"
+                stroke="#E14026"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          )}
         </button>
       </div>
 
       {/* Dropdown Menu */}
       {isOpen && (
-        <div className="absolute   flex flex-col ml-32  rounded-lg border border-gray-border1  text-text-gray   text-xs/4 bg-[#FFFFFF] shadowbox1">
+        <div className="absolute right-0   flex flex-col   rounded-lg border border-gray-border1  text-text-gray   text-xs/4 bg-[#FFFFFF] shadowbox1 hover:cursor-pointer">
           {options.map((option) => (
             <div
               key={option.id}

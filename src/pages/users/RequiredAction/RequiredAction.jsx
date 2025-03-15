@@ -14,7 +14,7 @@ export default function RequiredAction() {
 
   return (
     <>
-      <div className="min-h-full bg-[#FCFCFC] px-6 py-4 ">
+      <div className="min-h-full bg-[#FCFCFC] px-6 py-4 pointer-events-auto">
         <ActionHeader />
 
         <div className="min-h-[678px]  rounded-[16px] border-[1.5px] p-4 bg-white border-[#F1F1F1]   ">

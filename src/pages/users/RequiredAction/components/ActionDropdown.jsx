@@ -11,7 +11,7 @@ export default function Dropdown(props) {
     <div className="relative">
       <button
         onClick={toggleDropdown}
-        className="font-inter flex w-auto border max-h-10 max-w-35 sm:min-w-35 py-2.5 pr-2.5 pl-3 border-gray-border rounded-[8px] mt-3 gap-2 justify-between items-center hover:bg-neutral-50 hover:shadow"
+        className="font-inter flex w-auto border max-h-10 max-w-35 sm:min-w-35 py-2.5 pr-2.5 pl-3 border-gray-border rounded-[8px] mt-3 gap-2 justify-between items-center hover:bg-neutral-50 hover:shadow hover:cursor-pointer"
       >
         <h1 className="text-[#212121] font-normal text-xs/4">{props.text}</h1>
         <svg
@@ -33,7 +33,7 @@ export default function Dropdown(props) {
 
       {/* Dropdown Content */}
       {isOpen && (
-        <div className="absolute mt-2 min-w-35 rounded-[12px] border-2 bg-[#FFFFFF] border-gray-border1 shadowbox">
+        <div className="absolute mt-2 min-w-35 rounded-[12px] border-[1.5px] bg-[#FFFFFF] border-gray-border1 shadowbox">
           <div className="p-2">
             <a
               href="#"

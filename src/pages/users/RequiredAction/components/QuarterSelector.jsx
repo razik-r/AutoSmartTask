@@ -25,7 +25,7 @@ export default function QuarterSelector() {
     <>
       <div className="relative ">
         <button
-          className="border max-w-73 sm:min-w-73 border-gray-border1  rounded-[8px] flex   max-h-14 p-2 font-inter sm:justify-between items-center"
+          className="border max-w-73 sm:min-w-73 border-gray-border1  rounded-[8px] flex   max-h-14 p-2 font-inter sm:justify-between items-center hover:cursor-pointer"
           onClick={toggleDropdown}
         >
           <div className="flex flex-col gap-1 justify-center items-start">
