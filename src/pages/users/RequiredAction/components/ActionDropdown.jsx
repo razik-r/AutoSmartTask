@@ -34,30 +34,22 @@ export default function Dropdown(props) {
       {/* Dropdown Content */}
       {isOpen && (
         <div className="absolute mt-2 min-w-35 rounded-[12px] border-2 bg-[#FFFFFF] border-gray-border1 shadowbox">
-          <div
-            className="p-2"
-            role="menu"
-            aria-orientation="vertical"
-            aria-labelledby="options-menu"
-          >
+          <div className="p-2">
             <a
               href="#"
               className="block px-4 py-2 text-sm rounded-lg text-gray-700 hover:bg-gray-100"
-              role="menuitem"
             >
               Option 1
             </a>
             <a
               href="#"
               className="block px-4 py-2 text-sm rounded-lg text-gray-700 hover:bg-gray-100"
-              role="menuitem"
             >
               Option 2
             </a>
             <a
               href="#"
               className="block px-4 py-2 text-sm rounded-lg text-gray-700 hover:bg-gray-100"
-              role="menuitem"
             >
               Option 3
             </a>

@@ -3,19 +3,12 @@ import ProblemImg from "./ProblemImg.png";
 
 import React, { useState } from "react";
 export default function ActionCardModal({ onClose }) {
-  const [isOpen, setIsOpen] = useState(false);
 
-  const openPopup = () => {
-    setIsOpen(true);
-  };
-
-  const closePopup = () => {
-    setIsOpen(false);
-  };
   return (
     <>
-      <div className="flex flex-wrap sm:flex-nowrap  max-w-230.5 h-full  sm:h-103  p-4 border-2 border-[#F1F1F1] rounded-[24px] bg-[#FFFFFF] gap-0 sm:gap-4 items-center ">
+      <div className="flex flex-wrap sm:flex-nowrap  max-w-230.5  max-h-full  p-4 border-2 border-[#F1F1F1] rounded-[24px] bg-[#FFFFFF] gap-0 sm:gap-4 items-center ">
         <div className="flex flex-col gap-0 sm:gap-6">
+
           <div className="flex">
             <h1 className="text-[16px]/5 font-medium">Problem</h1>
 
@@ -42,7 +35,7 @@ export default function ActionCardModal({ onClose }) {
             </button>
           </div>
 
-          <div className="flex flex-col gap-3 max-w-109.5 h-55 p-3 border border-gray-border1 rounded-[12px] bg-[#FCFCFC]  ">
+          <div className="flex flex-col gap-3 max-w-109.5 p-3 border border-gray-border1 rounded-[12px] bg-[#FCFCFC]  ">
             <div className="  after:content-[''] after:block after:w-full after:h-[1px] after:bg-[#F1F1F1] after:mt-3 mb-1">
               <div className="flex flex-col gap-2">
                 <h1 className="text-sm/4.5 font-medium text-[#E14026] ">
@@ -141,7 +134,7 @@ export default function ActionCardModal({ onClose }) {
               <div className="flex gap-2 items-center">
                 <p className="text-xs/4 text-[#84838A]">Center Code</p>
                 <div className="flex gap-0.5 items-center">
-                  {" "}
+                
                   <svg
                     width="14"
                     height="14"
@@ -176,7 +169,7 @@ export default function ActionCardModal({ onClose }) {
             </div>
           </div>
 
-          <div className=" max-w-[437px] h-[92px]  p-3 border border-gray-border1 rounded-[12px] bg-[#FCFCFC]">
+          <div className="p-3 border border-gray-border1 rounded-[12px] bg-[#FCFCFC]">
             <div className="flex items-baseline gap-2 ">
               <svg
                 width="8"
@@ -221,9 +214,9 @@ export default function ActionCardModal({ onClose }) {
           </div>
         </div>
 
-        <div className="flex flex-col w-[437px] h-[380px] bg-[#FCFCFC] gap-3 border border-gray-border1 rounded-[8px] p-3 ">
+        <div className="flex grow flex-col min-h-95  bg-[#FCFCFC] gap-3 border border-gray-border1 rounded-[8px] p-3 ">
           <h1 className="flex text-xs/4">Remarks</h1>
-          <div className="flex max-w-[413px] border border-gray-border1 rounded-[8px] px-2.5 py-3 ">
+          <div className="flex max-w-103.5  border border-gray-border1 rounded-[8px] px-2.5 py-3 ">
             <p className="text-sm/4.5 text-[#84838A]">
               Clean nozzles, check for leaks, and use recommended fog fluid.
               Clean nozzles, check for leaks, and use recommended fog fluid.

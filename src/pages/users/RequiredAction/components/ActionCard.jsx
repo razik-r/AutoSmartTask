@@ -19,7 +19,7 @@ export default function ActionCard() {
     <>
       <button
         onClick={openPopup}
-        className="max-w-110.5 w-auto flex-1 min-h-[264px] bg-[#FFFFFF] border border-gray-border1 rounded-[12px] p-4 mt-6 flex flex-col  gap-3 shadowbox "
+        className="max-w-110.5 w-auto flex-1 max-h-66  bg-[#FFFFFF] border border-gray-border1 rounded-[12px] p-4 mt-6 flex flex-col  gap-3 shadowbox "
       >
         <div className="flex flex-col gap-2  ">
           <div className="flex  justify-start  gap-2">
