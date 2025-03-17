@@ -12,7 +12,7 @@ const ToggleView = ({ onViewChange }) => {
     <div className="border border-gray-border h-10 min-w-35 text-xs py-1 pr-1 pl-1 gap-[11px] bg-[#F9F9F9] rounded-lg flex justify-center items-center ">
       <button
         onClick={() => handleViewChange("List")}
-        className={`w-16.25 h-8 rounded-[6px] px-2 py-1  ${
+        className={`w-16.25 h-8 rounded-[6px] px-2 py-1 hover:cursor-pointer ${
           selectedView === "List"
             ? "bg-[#FFFFFF] text-[#212121]     border border-gray-border" // Active state
             : " text-[#B5B5B5] " // Inactive state
@@ -66,7 +66,7 @@ const ToggleView = ({ onViewChange }) => {
       {/* grid Button */}
       <button
         onClick={() => handleViewChange("Grid")}
-        className={`w-17 h-8 rounded-[6px] px-2 py-1  ${
+        className={`w-17 h-8 rounded-[6px] px-2 py-1 hover:cursor-pointer ${
           selectedView === "Grid"
             ? "bg-[#FFFFFF] text-[#212121]     border border-gray-border shadowbox" // Active state
             : " text-[#B5B5B5]" // Inactive state
