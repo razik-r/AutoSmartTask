@@ -179,31 +179,7 @@ export default function CenterSelector() {
             <CategorySelector />
 
             <div className="flex flex-col pt-2 gap-4">
-              <div className="flex flex-col gap-1 justify-center items-start">
-                <h1 className="font-medium text-sm text-[#212121] leading-4 tracking-[-0.5%]">
-                  {selectedOption.value}
-                </h1>
-
-                <div className="flex gap-2 pointer-events-auto">
-                  <div
-                    className={`bg-[#FCECEA] rounded-[4px] p-1  max-h-4 flex justify-center items-center`}
-                  >
-                    <h2 className="text-[10px] text-[#E14026] font-normal leading-3 text-nowrap">
-                      7 problems
-                    </h2>
-                  </div>
-
-                  <div
-                    className={`${selectedOption.bgcolor} rounded-[4px] p-1 max-h-4 flex justify-center items-center`}
-                  >
-                    <h2
-                      className={`${selectedOption.textcolor} text-[10px] text-nowrap font-normal leading-3`}
-                    >
-                      {selectedOption.indicator}
-                    </h2>
-                  </div>
-                </div>
-              </div>
+              
 
               {filteredOptions
                 .filter((option) => option.id !== selectedOption.id)
@@ -212,9 +188,9 @@ export default function CenterSelector() {
                     key={option.id}
                     href="#"
                     onClick={() => handleOptionClick(option)}
-                    className="flex flex-col gap-1 justify-center items-start hover:cursor-pointer transition-transform  duration-200 ease-in-out transform hover:scale-105    "
+                    className="flex flex-col gap-1 justify-center items-start hover:cursor-pointer transition-transform  duration-200 ease-in-out transform group hover:scale-105 "
                   >
-                    <h1 className="font-normal text-sm text-text-gray leading-4 tracking-[-0.5%] hover:scale-105
+                    <h1 className="font-normal text-sm text-text-gray leading-4 tracking-[-0.5%] hover:font-medium group-hover:text-[#212121]  
                     ">
                       {option.value}
                     </h1>

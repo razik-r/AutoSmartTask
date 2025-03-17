@@ -72,13 +72,32 @@ export default function CategorySelector() {
           {options.map((option) => (
             <div
               key={option.id}
-              className={`flex items-center justify-start py-2.5 px-4  text-nowrap ${
-                selectedOption === option.id ? "bg-neutral-100 text-[#212121] gap-2" : ""
-              }`}
+              className={`flex items-center justify-start py-2.5 px-4 group text-nowrap hover:bg-[#F6F6F6] gap-2
+                 
+                
+              `
+            }
               onClick={() => handleOptionClick(option.id)}
             >
-              <p className="  text-xs/4 transition-transform duration-200 ease-in-out transform hover:scale-105 ">{option.value}</p>
-              {selectedOption === option.id && (
+              <p className="  text-xs/4 transition-transform duration-200 ease-in-out transform group-hover:text-[#212121] ">{option.value}</p>
+              <svg
+              className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 ml-1"
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M2.0625 6.5625L4.6875 9.1875L9.9375 3.5625"
+                    stroke="#E14026"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+
+              {/* {selectedOption === option.id && (
                 <svg
                   width="12"
                   height="12"
@@ -94,7 +113,7 @@ export default function CategorySelector() {
                     strokeLinejoin="round"
                   />
                 </svg>
-              )}
+              )} */}
             </div>
           ))}
         </div>
