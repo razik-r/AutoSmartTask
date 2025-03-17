@@ -3,7 +3,7 @@ import Auditor from "./Auditor.png";
 export default function Detailedpage() {
   return (
     <>
-      <div className="flex flex-col max-w-[418px]  p-3 bg-[#FFFFFF] border border-gray-border1 gap-3 rounded-[12px] shadowbox">
+      <div className="flex flex-col   p-3 bg-[#FFFFFF] border border-gray-border1 gap-3 rounded-[12px] shadowbox">
         <svg
           width="16"
           height="16"

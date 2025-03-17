@@ -6,7 +6,7 @@ export default function ActionCardModal({ onClose }) {
 
   return (
     <>
-      <div className="flex flex-wrap sm:flex-nowrap  max-w-230.5  max-h-full  p-4 border-2 border-[#F1F1F1] rounded-[24px] bg-[#FFFFFF] gap-0 sm:gap-4 items-center ">
+      <div className="flex  scale-80 sm:scale-100    p-4 border-2 border-[#F1F1F1] rounded-[24px] bg-[#FFFFFF] gap-4 items-center ">
         <div className="flex flex-col gap-0 sm:gap-6">
 
           <div className="flex">
@@ -35,14 +35,14 @@ export default function ActionCardModal({ onClose }) {
             </button>
           </div>
 
-          <div className="flex flex-col gap-3 max-w-109.5 p-3 border border-gray-border1 rounded-[12px] bg-[#FCFCFC]  ">
+          <div className="flex flex-col gap-3  p-3 border border-gray-border1 rounded-[12px] bg-[#FCFCFC]  ">
             <div className="  after:content-[''] after:block after:w-full after:h-[1px] after:bg-[#F1F1F1] after:mt-3 mb-1">
               <div className="flex flex-col gap-2">
-                <h1 className="text-sm/4.5 font-medium text-[#E14026] ">
+                <h1 className="text-sm/4.5 font-medium text-[#E14026] max-w-105 break-words  ">
                   Blocked nozzles or leaks can reduce performance and pose
                   safety risks.
                 </h1>
-                <p className="text-sm/4.5 text-[#84838A]">
+                <p className="text-sm/4.5 text-[#84838A] max-w-105 break-words">
                   Clean nozzles, check for leaks, and use recommended fog fluid.
                 </p>
               </div>
@@ -214,7 +214,7 @@ export default function ActionCardModal({ onClose }) {
           </div>
         </div>
 
-        <div className="flex grow flex-col min-h-95  bg-[#FCFCFC] gap-3 border border-gray-border1 rounded-[8px] p-3 ">
+        <div className="flex grow flex-col pb-30  bg-[#FCFCFC] gap-3 border border-gray-border1 rounded-[8px] p-3 ">
           <h1 className="flex text-xs/4">Remarks</h1>
           <div className="flex max-w-103.5  border border-gray-border1 rounded-[8px] px-2.5 py-3 ">
             <p className="text-sm/4.5 text-[#84838A]">

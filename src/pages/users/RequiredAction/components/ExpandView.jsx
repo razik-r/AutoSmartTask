@@ -18,7 +18,7 @@ export default function ExpandView() {
 
         <Searchcomponent />
 
-        <div className="flex  flex-wrap pl-2.5 py-2 pr-2 h-10 w-30 border-[1.5px]  border-gray-border1 rounded-[8px]  justify-between items-center">
+        <div className="flex  flex-wrap pl-2.5 py-2 pr-2 min-h-10 min-w-35 border-[1.5px]  border-gray-border1 rounded-[8px]  justify-between items-center">
           <div className="flex">
             <p className="text-xs/4 text-[#212121] ">Sort By</p>
           </div>
@@ -40,7 +40,7 @@ export default function ExpandView() {
       </div>
 
       <div className="grid lg:grid-cols-3 md:grid-col-2 grid-col-1 justify-center gap-4 mt-4">
-        <div className="max-w-110.75  min-h-106 bg-[#F9F9F9]  border border-gray-border1 p-3 rounded-[12px] flex flex-col gap-2">
+        <div className="  bg-[#F9F9F9]  border border-gray-border1 p-3 rounded-[12px] flex flex-col gap-2">
           <p className="text-[16px]/5 text-[#212121] font-medium ml-[6px]">
             Pending
             <span className="text-[#84838A] ml-[2px] text-sm/4.5 font-normal">
@@ -51,7 +51,7 @@ export default function ExpandView() {
           <DetailedPageCard />
           <DetailedPageCard />
         </div>
-        <div className="max-w-110.75  sm:min-h-106 bg-[#F9F9F9]  border border-gray-border1 p-3 rounded-[12px] flex flex-col gap-2">
+        <div className=" bg-[#F9F9F9]  border border-gray-border1 p-3 rounded-[12px] flex flex-col gap-2">
           <p className="text-[16px]/5 text-[#212121] font-medium ml-[6px]">
             In Progress
             <span className="text-[#84838A] ml-[2px] text-sm/4.5 font-normal">
@@ -60,7 +60,7 @@ export default function ExpandView() {
           </p>
           <DetailedPageCard />
         </div>
-        <div className="max-w-110.75 sm:min-h-106 bg-[#F9F9F9]  border border-gray-border1 p-3 rounded-[12px] flex flex-col gap-2">
+        <div className=" bg-[#F9F9F9]  border border-gray-border1 p-3 rounded-[12px] flex flex-col gap-2">
           <p className="text-[16px]/5 text-[#212121] font-medium ml-[6px]">
             Completed
             <span className="text-[#84838A] ml-[2px] text-sm/4.5 font-normal">

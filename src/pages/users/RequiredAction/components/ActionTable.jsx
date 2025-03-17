@@ -29,10 +29,10 @@ export default function ActionTable() {
               <tr className="border-b-1 border-gray-border1  bg-[#F6F6F6] text-xs font-inter   ">
                 <th
                   scope="col"
-                  className="font-normal px-3 w-auto min-w-[515.5px] "
+                  className="font-normal px-3 min-w-100 sm:min-w-0 "
                 >
-                  <h2 className="flex items-center gap-1">
-                    Question{" "}
+                  <h2 className="flex items-center gap-1 ">
+                    Question
                     <svg
                       width="16"
                       height="16"
@@ -47,7 +47,7 @@ export default function ActionTable() {
                     </svg>
                   </h2>
                 </th>
-                <th scope="col" className="p-3  font-normal min-w-[515.5px] ">
+                <th scope="col" className="p-3  font-normal min-w-100 sm:min-w-0  ">
                   <h2 className="flex items-center gap-2">
                     Problem
                     <svg
@@ -65,9 +65,9 @@ export default function ActionTable() {
                   </h2>
                 </th>
 
-                <th scope="col" className="px-3 py-3 font-normal min-w-[68px] ">
+                <th scope="col" className="px-3 py-3 font-normal min-w-17 ">
                   <h2 className="flex items-center gap-2">
-                    {" "}
+                   
                     PIC
                     <svg
                       width="17"
@@ -86,10 +86,10 @@ export default function ActionTable() {
 
                 <th
                   scope="col"
-                  className="px-3 py-3 font-normal min-w-[134px] "
+                  className="px-3 py-3 font-normal min-w-33.5 "
                 >
                   <h2 className="flex items-center gap-2">
-                    {" "}
+                    
                     Next Action
                     <svg
                       width="17"
@@ -107,10 +107,10 @@ export default function ActionTable() {
                 </th>
                 <th
                   scope="col"
-                  className="px-3 py-3 font-normal min-w-[127px] "
+                  className="px-3 py-3 font-normal min-w-31.5 "
                 >
                   <h2 className="flex items-center gap-2">
-                    {" "}
+                  
                     Attachments
                     <svg
                       width="17"

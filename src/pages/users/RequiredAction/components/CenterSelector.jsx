@@ -141,7 +141,7 @@ export default function CenterSelector() {
           )}
         </button>
         {isOpen && (
-          <div className="absolute p-4 min-w-3/4 max-h-63 sm:max-h-none sm:min-w-73 mt-1 border border-gray-border1 flex flex-col z-999 bg-[#FFFFFF] rounded-lg overflow-y-scroll  shadowbox1  ">
+          <div className="absolute p-4 w-full  mt-1 border border-gray-border1 flex flex-col z-999 bg-[#FFFFFF] rounded-lg overflow-y-scroll  shadowbox1  ">
             <div className="flex px-2.5 py-3 justify-between rounded-lg border border-gray-border -mt-2 mb-2 gap-2">
               <svg
                 width="16"
@@ -186,15 +186,15 @@ export default function CenterSelector() {
 
                 <div className="flex gap-2 pointer-events-auto">
                   <div
-                    className={`bg-[#FCECEA] rounded-[4px] p-1 min-w-15.25  max-h-[15px] flex justify-center items-center`}
+                    className={`bg-[#FCECEA] rounded-[4px] p-1  max-h-4 flex justify-center items-center`}
                   >
-                    <h2 className="text-[10px] text-[#E14026] font-normal leading-3">
+                    <h2 className="text-[10px] text-[#E14026] font-normal leading-3 text-nowrap">
                       7 problems
                     </h2>
                   </div>
 
                   <div
-                    className={`${selectedOption.bgcolor} rounded-[4px] p-1 min-w-15.25 max-h-[15px] flex justify-center items-center`}
+                    className={`${selectedOption.bgcolor} rounded-[4px] p-1 max-h-4 flex justify-center items-center`}
                   >
                     <h2
                       className={`${selectedOption.textcolor} text-[10px] text-nowrap font-normal leading-3`}
@@ -212,24 +212,25 @@ export default function CenterSelector() {
                     key={option.id}
                     href="#"
                     onClick={() => handleOptionClick(option)}
-                    className="flex flex-col gap-1 justify-center items-start hover:cursor-pointer "
+                    className="flex flex-col gap-1 justify-center items-start hover:cursor-pointer transition-transform  duration-200 ease-in-out transform hover:scale-105    "
                   >
-                    <h1 className="font-normal text-sm text-text-gray leading-4 tracking-[-0.5%]">
+                    <h1 className="font-normal text-sm text-text-gray leading-4 tracking-[-0.5%] hover:scale-105
+                    ">
                       {option.value}
                     </h1>
 
-                    <div className="flex gap-2">
-                      <div className="bg-[#FCECEA] rounded-[4px] p-1 min-w-15.25 h-[15px] flex justify-center items-center">
-                        <h2 className="text-[10px] text-[#E14026] font-normal leading-3">
+                    <div className="flex gap-2.5 ">
+                      <div className="bg-[#FCECEA] rounded-[4px] p-1  max-h-4  flex justify-center items-center">
+                        <h2 className="text-[10px] text-[#E14026] font-normal leading-3 text-nowrap">
                           7 problems
                         </h2>
                       </div>
 
                       <div
-                        className={`${option.bgcolor} rounded-[4px] p-1 min-w-15.25 h-[15px] flex justify-center items-center`}
+                        className={`${option.bgcolor} rounded-[4px] p-1 max-h-4 flex justify-center items-center`}
                       >
                         <h2
-                          className={`${option.textcolor} text-[10px]  font-normal leading-3`}
+                          className={`${option.textcolor} text-[10px] text-nowrap font-normal leading-3`}
                         >
                           {option.indicator}
                         </h2>

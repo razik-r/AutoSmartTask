@@ -6,22 +6,22 @@ export default function ActionTableList(props) {
       <tr className="border-b  border-gray-border1 ">
         <th
           scope="row"
-          className="   font-inter  text-black-table whitespace-nowrap  "
+          className=" xl:min-w-129  font-inter  text-black-table whitespace-nowrap  "
         >
-          <div className="p-3 h-20.5 flex flex-col gap-2">
+          <div className="p-3  flex flex-col gap-2">
             <h2 className=" text-sm/4.5 font-medium ">Fog machine</h2>
-            <p className=" text-text-gray text-sm/4.5 font-normal  ">
+            <p className=" text-text-gray text-sm/4.5 font-normal text-wrap sm:text-nowrap ">
               Fog Machine is in good working condition, clean & available?
             </p>
           </div>
         </th>
 
         <td className="  whitespace-nowrap ">
-          <div className=" flex flex-col gap-2   p-3 max-h-20.5 ">
+          <div className=" flex flex-col gap-2 p-3  ">
             <h2 className="text-[#E14026] text-sm/4.5 font-medium">
               Fog machine clogs due to residue buildup, reducing output.
             </h2>
-            <p className="text-text-gray text-sm/4.5 font-normal text-wrap">
+            <p className="text-text-gray text-sm/4.5 font-normal  text-wrap ">
               Regularly clean with a vinegar-water solution to dissolve residue
               and ensure smooth operation
             </p>

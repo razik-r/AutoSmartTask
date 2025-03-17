@@ -25,14 +25,14 @@ export default function QuarterSelector() {
     <>
       <div className="relative ">
         <button
-          className="border max-w-73 sm:min-w-73 border-gray-border1  rounded-[8px] flex   max-h-14 p-2 font-inter sm:justify-between items-center hover:cursor-pointer"
+          className="border  sm:min-w-73 border-gray-border1  rounded-[8px] flex   max-h-14 p-2 font-inter sm:justify-between items-center hover:cursor-pointer "
           onClick={toggleDropdown}
         >
           <div className="flex flex-col gap-1 justify-center items-start">
-            <h1 className="font-medium text-xs leading-4 tracking-[-0.5%]">
+            <h1 className="font-medium text-xs leading-4 tracking-[-0.5%] ">
               {selectedOption}
             </h1>
-            <div className="  h-[15px] ">
+            <div className="   ">
               <svg
                 width="46"
                 height="16"
@@ -84,10 +84,10 @@ export default function QuarterSelector() {
         </button>
 
         {isOpen && (
-          <div className=" absolute   min-w-73 mt-1 border rounded-lg bg-[#FFFFFF] border-gray-border1 py-4 z-999 shadowbox1  ">
+          <div className=" absolute   w-full mt-1 border rounded-lg bg-[#FFFFFF] border-gray-border1 py-4 z-999 shadowbox1   ">
             <div className=" flex flex-col  ">
               <div
-                className="flex flex-col gap-1 px-3 -mt-2 py-2  min-h-5  bg-[#F6F6F6]  text-sm/4.5 text-[#212121] font-medium"
+                className="flex flex-col gap-1 px-3 -mt-2 py-2    bg-[#F6F6F6]  text-sm/4.5 text-[#212121] font-medium text-nowrap"
                 onClick={() => handleOptionClick(selectedOption)}
               >
                 <h1> {selectedOption}</h1>
@@ -105,14 +105,14 @@ export default function QuarterSelector() {
                   />
                 </svg>
               </div>
-              <div className=" flex flex-col gap-4 px-3  mt-2  ">
+              <div className=" flex flex-col gap-4 px-3  mt-2 min-w-73  ">
                 {options
                   .filter((option) => option !== selectedOption) // Exclude the selected option
                   .map((option, index) => (
                     <a
                       key={index}
                       href="#"
-                      className=" text-sm/4.5 text-text-gray  "
+                      className=" text-sm/4.5 text-text-gray transition-transform duration-200 ease-in-out transform hover:scale-105   "
                       onClick={() => handleOptionClick(option)}
                     >
                       {option}

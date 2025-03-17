@@ -3,7 +3,7 @@ import { useState } from "react";
 export default function ActionHeader() {
   return (
     <>
-      <div className="min-w-full max-h-17  flex items-center  bg-[#FFFFFF] mb-3 border border-gray-border1 rounded-[12px] shadowbox  p-3 ">
+      <div className="  flex items-center  bg-[#FFFFFF] mb-3 border border-gray-border1 rounded-[12px] shadowbox  p-3 ">
         <div className="flex  gap-2">
           <svg
             width="44"

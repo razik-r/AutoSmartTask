@@ -3,7 +3,7 @@ import { Search } from "lucide-react";
 export default function Searchcomponent() {
   return (
     <>
-      <div className="ml-auto   font-inter  max-h-10 max-w-35">
+      <div className="ml-auto   font-inter   max-w-35">
         <div className="flex flex-col flex-wrap px-2.5 py-3 h-10  border gap-2 border-gray-border rounded-[8px]  justify-start items-center">
           <svg
             width="16"

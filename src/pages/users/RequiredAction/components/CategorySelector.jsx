@@ -27,7 +27,7 @@ export default function CategorySelector() {
   return (
     <div className="relative">
       {/* Dropdown Button */}
-      <div className="flex w-full  items-center justify-between py-2.5 pr-2.5 pl-3 border border-[#FFCCC5] rounded-lg">
+      <div className="flex w-full  items-center justify-between py-2.5 pr-2.5 pl-3 border border-[#FFCCC5] rounded-lg ">
         <h1 className="text-xs/4 text-text-gray">Category Select</h1>
         <button onClick={toggleDropdown} className="hover:cursor-pointer">
         {!isOpen ? (
@@ -68,7 +68,7 @@ export default function CategorySelector() {
 
       {/* Dropdown Menu */}
       {isOpen && (
-        <div className="absolute right-0  min-w-2/4 flex flex-col   rounded-lg border border-gray-border1  text-text-gray   text-xs/4 bg-[#FFFFFF] shadowbox1 hover:cursor-pointer">
+        <div className="absolute right-0  min-w-2/4 flex flex-col   rounded-lg border border-gray-border1  text-text-gray   text-xs/4 bg-[#FFFFFF] z-999 shadowbox1 hover:cursor-pointer ">
           {options.map((option) => (
             <div
               key={option.id}
@@ -77,7 +77,7 @@ export default function CategorySelector() {
               }`}
               onClick={() => handleOptionClick(option.id)}
             >
-              <p className="  text-xs/4">{option.value}</p>
+              <p className="  text-xs/4 transition-transform duration-200 ease-in-out transform hover:scale-105 ">{option.value}</p>
               {selectedOption === option.id && (
                 <svg
                   width="12"

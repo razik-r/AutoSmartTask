@@ -19,7 +19,7 @@ export default function ActionCard() {
     <>
       <button
         onClick={openPopup}
-        className="max-w-110.5 w-auto flex-1 min-h-66  bg-[#FFFFFF] border border-gray-border1 rounded-[12px] p-4 mt-6 flex flex-col  gap-3 shadowbox hover:cursor-pointer "
+        className=" w-auto   bg-[#FFFFFF] border border-gray-border1 rounded-[12px] p-4 mt-6 flex flex-col  gap-3 shadowbox hover:cursor-pointer "
       >
         <div className="flex flex-col gap-2  ">
           <div className="flex  justify-start  gap-2">
@@ -38,12 +38,12 @@ export default function ActionCard() {
               Is the fog machine functioning correctly?
             </h1>
           </div>
-          <p className=" ml-4 text-sm/4.5 font-normal text-text-gray ">
+          <p className=" ml-1.5 text-sm/4.5 font-normal text-text-gray ">
             Is it well-maintained and free from clogs or leaks?
           </p>
         </div>
 
-        <div className="flex flex-col max-w-102.5 min-h-35  rounded-[8px] border border-gray-border p-3 gap-2 bg-[#F6F6F6]">
+        <div className="flex flex-col   rounded-[8px] border border-gray-border p-3 gap-2 bg-[#F6F6F6]">
           <div className="flex flex-col gap-2 ">
             <h1 className="text-sm/4.5 font-medium text-[#E14026] text-left">
               Blocked nozzles or leaks can reduce performance and pose safety
