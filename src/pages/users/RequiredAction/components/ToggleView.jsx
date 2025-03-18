@@ -12,7 +12,7 @@ const ToggleView = ({ onViewChange }) => {
     <div className=" relative border  border-gray-border text-xs py-1 pr-1 pl-1 gap-[11px] bg-[#F9F9F9] rounded-lg flex justify-center items-center ">
        <div
         className={`absolute  top-1 h-[calc(100%-8px)] w-[calc(50%-8px)]  rounded-[6px] transition-all duration-300 ease-in-out ${
-          selectedView === "List" ? "translate-x-0 left-0 " : "translate-x-full left-3 bg-none shadowbox"
+          selectedView === "List" ? "translate-x-0 left-0 " : "translate-x-full left-3 bg-none shadowbox "
         }`}
       ></div>
     
