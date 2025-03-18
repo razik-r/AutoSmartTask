@@ -83,8 +83,10 @@ export default function QuarterSelector() {
           )}
         </button>
 
-        {isOpen && (
-          <div className=" absolute   w-full mt-1 border rounded-lg bg-[#FFFFFF] border-gray-border1  z-999 shadowbox1   ">
+      
+          <div className={` absolute   w-full mt-1 border rounded-lg bg-[#FFFFFF] border-gray-border1  z-999 shadowbox1 transition-all duration-200 ease-in-out transform origin-top ${
+            isOpen ? "scale-y-100 opacity-100" : "scale-y-0 opacity-0"
+          } overflow-hidden`}  >
             <div className=" flex flex-col  gap-4 ">
               {/* <div
                 className="flex flex-col gap-1 px-3 -mt-2 py-2    bg-[#F6F6F6]  text-sm/4.5 text-[#212121] font-medium text-nowrap"
@@ -136,7 +138,7 @@ export default function QuarterSelector() {
               </div>
             </div>
           </div>
-        )}
+      
       </div>
     </>
   );

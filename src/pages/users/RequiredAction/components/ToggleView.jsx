@@ -9,14 +9,19 @@ const ToggleView = ({ onViewChange }) => {
   };
 
   return (
-    <div className="border border-gray-border text-xs py-1 pr-1 pl-1 gap-[11px] bg-[#F9F9F9] rounded-lg flex justify-center items-center ">
+    <div className=" relative border  border-gray-border text-xs py-1 pr-1 pl-1 gap-[11px] bg-[#F9F9F9] rounded-lg flex justify-center items-center ">
+       <div
+        className={`absolute  top-1 h-[calc(100%-8px)] w-[calc(50%-8px)]  rounded-[6px] transition-all duration-300 ease-in-out ${
+          selectedView === "List" ? "translate-x-0 left-3 " : "translate-x-full left-3 bg-none shadowbox"
+        }`}
+      ></div>
       <button
         onClick={() => handleViewChange("List")}
-        className={` rounded-[6px] px-2 py-1 hover:cursor-pointer ${
+        className={` box-border rounded-[6px] px-2 py-1 hover:cursor-pointer ${
           selectedView === "List"
-            ? "bg-[#FFFFFF] text-[#212121]     border border-gray-border" // Active state
-            : " text-[#B5B5B5] " // Inactive state
-        } transition-normal duration-10 ease-linear `}
+            ? "bg-[#FFFFFF] text-[#212121]     border border-gray-border " // Active state
+            : " text-[#B5B5B5] border border-transparent " // Inactive state
+        } transition-all duration-300 ease-in-out transform  `}
       >
         <div className="flex justify-center items-center gap-1">
           <svg
@@ -66,11 +71,11 @@ const ToggleView = ({ onViewChange }) => {
       {/* grid Button */}
       <button
         onClick={() => handleViewChange("Grid")}
-        className={` rounded-[6px] px-2 py-1 hover:cursor-pointer ${
+        className={`box-border rounded-[6px] px-2 py-1 hover:cursor-pointer ${
           selectedView === "Grid"
-            ? "bg-[#FFFFFF] text-[#212121]     border border-gray-border shadowbox" // Active state
-            : " text-[#B5B5B5]" // Inactive state
-        } transition-normal duration-10 ease-linear`}
+            ? "bg-[#FFFFFF] text-[#212121]     border border-gray-border    " // Active state
+            : " text-[#B5B5B5] border border-transparent left-3  " // Inactive state
+        } transition-all duration-300 ease-in-out left-0`}
       >
         <div className="flex justify-center items-center gap-1">
           <svg

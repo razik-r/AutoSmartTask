@@ -140,8 +140,10 @@ export default function CenterSelector() {
             </svg>
           )}
         </button>
-        {isOpen && (
-          <div className="absolute p-4 w-full  mt-1 border border-gray-border1 flex flex-col z-999 bg-[#FFFFFF] rounded-lg overflow-y-scroll  shadowbox1  ">
+        
+          <div className={`absolute p-4 w-full  mt-1 border border-gray-border1 flex flex-col z-999 bg-[#FFFFFF] rounded-lg overflow-y-scroll  shadowbox1 transition-all duration-200 ease-in-out transform origin-top ${
+            isOpen ? "scale-y-100 opacity-100" : "scale-y-0 opacity-0"
+          } overflow-hidden`}>
             <div className="flex px-2.5 py-3 justify-between rounded-lg border border-gray-border -mt-2 mb-2 gap-2">
               <svg
                 width="16"
@@ -216,7 +218,7 @@ export default function CenterSelector() {
                 ))}
             </div>
           </div>
-        )}
+       
       </div>
     </>
   );
