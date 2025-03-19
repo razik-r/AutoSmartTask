@@ -38,7 +38,7 @@ export default function ActionCard() {
               Is the fog machine functioning correctly?
             </h1>
           </div>
-          <p className=" ml-1.5 text-sm/4.5 font-normal text-text-gray ">
+          <p className=" ml-3 text-sm/4.5 font-normal text-text-gray ">
             Is it well-maintained and free from clogs or leaks?
           </p>
         </div>

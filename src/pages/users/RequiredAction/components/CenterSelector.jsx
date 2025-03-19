@@ -78,7 +78,7 @@ export default function CenterSelector() {
       <div className="relative">
         <button
           onClick={toggleDropdown}
-          className="border max-w-73 sm:min-w-73 border-gray-border1 rounded-[8px] flex   max-h-14 p-2 font-inter   sm:justify-between items-center hover:cursor-pointer "
+          className="border sm:min-w-73 border-gray-border1 rounded-[8px] flex    p-2 font-inter   sm:justify-between items-center hover:cursor-pointer "
         >
           <div className="flex flex-col gap-1 justify-center items-start">
             <h1 className="font-medium text-xs leading-4 tracking-[-0.5%]">
