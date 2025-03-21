@@ -2,7 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-// import EvaluationScore from './pages/users/EvaluationScore/components/EvaluationScore'
+import EvaluationScore from './pages/users/EvaluationScore/EvaluationScore'
 import RequiredAction from './pages/users/RequiredAction/RequiredAction'
 // import ExpandView from './pages/users/RequiredAction/components/ExpandView'
 // import SearchComponent from './pages/users/EvaluationScore/components/Searchcomponent'
@@ -18,7 +18,9 @@ function App() {
   
   return(
 
-    <RequiredAction/>
+
+  <EvaluationScore/>
+  // <RequiredAction/>
 
 
   )
