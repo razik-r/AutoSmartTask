@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-
+import ChevronDown from "../../../../assets/ChevronDown";
+import ChevronUp from "../../../../assets/ChevronUp";
 export default function CategorySelector() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null); // Track the selected option
@@ -31,37 +32,9 @@ export default function CategorySelector() {
         <h1 className="text-xs/4 text-text-gray">Category Select</h1>
         <button onClick={toggleDropdown} className="hover:cursor-pointer">
         {!isOpen ? (
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M15 7.5L10 12.5L5 7.5"
-                stroke="#E14026"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
+           <ChevronDown/>
           ) : (
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M15 12.5L10 7.5L5 12.5"
-                stroke="#E14026"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
+           <ChevronUp/>
           )}
         </button>
       </div>

@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import CategorySelector from "./CategorySelector";
+import ChevronDown from "../../../../assets/ChevronDown";
+import ChevronUp from "../../../../assets/ChevronUp";
+import Search from "../../../../assets/Search";
+
 
 export default function CenterSelector() {
   const [searchInput, setSearchInput] = useState("");
@@ -107,37 +111,9 @@ export default function CenterSelector() {
             </div>
           </div>
           {!isOpen ? (
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M15 7.5L10 12.5L5 7.5"
-                stroke="#E14026"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
+            <ChevronDown/>
           ) : (
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M15 12.5L10 7.5L5 12.5"
-                stroke="#E14026"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
+            <ChevronUp/>
           )}
         </button>
         
@@ -145,28 +121,7 @@ export default function CenterSelector() {
             isOpen ? "scale-y-100 opacity-100" : "scale-y-0 opacity-0"
           } overflow-hidden`}>
             <div className="flex px-2.5 py-3 justify-between rounded-lg border border-gray-border -mt-2 mb-2 gap-2">
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M7.66671 13.9999C11.1645 13.9999 14 11.1644 14 7.66659C14 4.16878 11.1645 1.33325 7.66671 1.33325C4.1689 1.33325 1.33337 4.16878 1.33337 7.66659C1.33337 11.1644 4.1689 13.9999 7.66671 13.9999Z"
-                  stroke="#E14026"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M14.6667 14.6666L13.3334 13.3333"
-                  stroke="#E14026"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
+              <Search/>
 
               <input
                 type="text"
