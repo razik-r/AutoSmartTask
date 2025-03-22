@@ -1,4 +1,5 @@
-
+import ChevronDown from "../../../../assets/ChevronDown";
+import ChevronUp from "../../../../assets/ChevronUp";
 import React, { useState } from "react";
 
 export default function Dropdown(props) {
@@ -32,37 +33,9 @@ export default function Dropdown(props) {
       >
         <h1 className="text-[#84838A] font-normal text-xs/4">{props.text}</h1>
         {!isOpen ? (
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M15 7.5L10 12.5L5 7.5"
-                stroke="#E14026"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
+          <ChevronDown/>
           ) : (
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M15 12.5L10 7.5L5 12.5"
-                stroke="#E14026"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
+           <ChevronUp/>
           )}
       </button>
 
@@ -78,6 +51,7 @@ export default function Dropdown(props) {
             onClick={() => handleOptionClick(option.id)}
           >
             <p className="  text-xs/4 transition-transform duration-200 ease-in-out transform group-hover:text-[#212121] ">{option.value}</p>
+
             <svg
             className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 ml-1"
                 width="12"
@@ -93,7 +67,7 @@ export default function Dropdown(props) {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
-              </svg>
+            </svg>
 
            
           </div>
