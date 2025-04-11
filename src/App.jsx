@@ -4,6 +4,8 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import EvaluationScore from './pages/users/EvaluationScore/EvaluationScore'
 import RequiredAction from './pages/users/RequiredAction/RequiredAction'
+
+import Gallery from './pages/users/gallery/Gallery'
 // import ExpandView from './pages/users/RequiredAction/components/ExpandView'
 // import SearchComponent from './pages/users/EvaluationScore/components/Searchcomponent'
 // import Dropdown from './pages/users/EvaluationScore/components/Dropdown'
@@ -19,8 +21,11 @@ function App() {
   return(
 
 
-  <EvaluationScore/>
+  // <EvaluationScore/>
   // <RequiredAction/>
+
+  <Gallery/>
+  
 
 
   )
