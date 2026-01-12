@@ -21,8 +21,8 @@ function App() {
   return(
 
 
-  // <EvaluationScore/>
-  // <RequiredAction/>
+  <EvaluationScore/>
+  <RequiredAction/>
 
   <Gallery/>
   
