@@ -1,242 +1,333 @@
-import { useState } from "react";
-import Searchcomponent from "./components/Searchcomponent";
-import Dropdown from "./components/Dropdown";
-import Tablecontent from "./components/Tablecontent";
-// import TermComponent from './components/TermComponent'
-import QuarterSelector from "./components/QuarterSelector";
+import { useMemo, useState } from "react";
+import { motion as Motion } from "framer-motion";
+import { ChevronsUpDown, Radar } from "lucide-react";
+import AnimatedSelect from "../../../components/ui/AnimatedSelect";
+import SearchInput from "../../../components/ui/SearchInput";
 import Pending from "./assets/Pending";
 import Ongoing from "./assets/Ongoing";
 import Approval from "./assets/Approval";
 import Submitted from "./assets/Submitted";
+import Logo from "./assets/Logo";
 
-import Logo from "./assets/Logo"
-
-
-
-import {
-  Bolt,
-  CircleAlert,
-  CircleCheck,
-  ChevronsUpDown,
-  Trophy,
-  CircleEllipsis,
-} from "lucide-react";
-
-
-const data = [
+const rows = [
   {
-    name: "Ebrahim Khalil kano",
     id: "#C1234",
-    value: "12",
-    className: "bg-[#C5E2F1] text-[#138CC9]",
-    btntext: "Pending",
-    color: "text-[#E14026]",
-    color2: "text-[#805EC5]",
-    color3: "text-[#3F9A26]",
+    name: "Ebrahim Khalil Kano",
+    auditor: "Sara Ahmed",
+    region: "West",
+    type: "Flagship",
+    outlet: "TH",
+    quarter: "2025-Quarter 1",
+    status: "Pending",
+    scores: ["84", "71", "65", "80", "72", "90"],
+    badgeClass: "bg-[#C5E2F1] text-[#138CC9]",
   },
   {
-    name: "Alolya Jeddah",
     id: "#C2345",
-    value: "12",
-    className: "bg-[#FFECD6] text-[#ED8F22]",
-    btntext: "Ongoing",
-    color: "text-[#138CC9]",
-    color3: "text-[#212121]",
+    name: "Al Olaya Jeddah",
+    auditor: "Mazen Khaled",
+    region: "Central",
+    type: "Retail",
+    outlet: "SA",
+    quarter: "2025-Quarter 1",
+    status: "Ongoing",
+    scores: ["91", "78", "82", "86", "79", "88"],
+    badgeClass: "bg-[#FFECD6] text-[#ED8F22]",
   },
   {
-    name: "Ebrahim Khalil kano",
-    id: "#C1234",
-    value: "12",
-    className: "bg-[#EBDEEF] text-[#805EC5]",
-    btntext: "Approval",
-    color3: "text-[#E14026]",
+    id: "#C3456",
+    name: "Fujairah Express",
+    auditor: "Noor Abbas",
+    region: "East",
+    type: "Express",
+    outlet: "AE",
+    quarter: "2025-Quarter 2",
+    status: "Approval",
+    scores: ["93", "81", "84", "88", "90", "91"],
+    badgeClass: "bg-[#EBDEEF] text-[#805EC5]",
   },
   {
-    name: "Ebrahim Khalil kano",
-    id: "#C1234",
-    value: "12",
-    className: "bg-[#D7EECA] text-[#3F9A26]",
-    btntext: "Submitted",
-    color: "text-[#805EC5]",
-    color2: "text-[#3F9A26]",
-    color3: "text-[#E14026]",
+    id: "#C4567",
+    name: "Dubai Deira Hub",
+    auditor: "Sara Ahmed",
+    region: "North",
+    type: "Flagship",
+    outlet: "AE",
+    quarter: "2025-Quarter 1",
+    status: "Submitted",
+    scores: ["96", "88", "91", "92", "89", "95"],
+    badgeClass: "bg-[#D7EECA] text-[#3F9A26]",
+  },
+  {
+    id: "#C5678",
+    name: "Ras Al Khaimah",
+    auditor: "Mazen Khaled",
+    region: "East",
+    type: "Retail",
+    outlet: "AE",
+    quarter: "2025-Quarter 2",
+    status: "Pending",
+    scores: ["79", "68", "72", "75", "71", "80"],
+    badgeClass: "bg-[#C5E2F1] text-[#138CC9]",
   },
 ];
 
-export default function EvaluationScore() {
-  const [items, setItems] = useState(data);
-  return (
-    <>
-      <div className="min-h-full bg-[#FCFCFC] px-6 py-4 ">
-        <div className="min-w-full min-h-17 py-3 flex items-center size-11 bg-[#FFFFFF] mb-3 border border-gray-border1 rounded-[12px] shadowbox">
-          <div className=" ml-3  ">
+const quarterOptions = [
+  "2025-Quarter 1",
+  "2025-Quarter 2",
+  "2025-Quarter 3",
+  "2025-Quarter 4",
+  "2026-Quarter 1",
+];
 
-            <Logo/>
-            
-          </div>
-          <div className="flex flex-col gap-1">
-            <h1 className="ml-4  text-lg/6 align-text-top font-medium ">
+const scoreHeaders = [
+  "Customer Experience",
+  "Equipment Management",
+  "Battery Business",
+  "Periodic Maintenance",
+  "Tire Business",
+  "Safety",
+];
+
+function StatusSummary({ status, count }) {
+  const icons = {
+    Pending: <Pending />,
+    Ongoing: <Ongoing />,
+    Approval: <Approval />,
+    Submitted: <Submitted />,
+  };
+
+  return (
+    <span className="inline-flex items-center gap-2 rounded-full border border-slate-200/80 bg-white/80 px-3 py-1.5 text-xs text-slate-600">
+      {icons[status]}
+      <span>{status}</span>
+      <strong className="text-slate-900">{count}</strong>
+    </span>
+  );
+}
+
+export default function EvaluationScore() {
+  const [query, setQuery] = useState("");
+  const [quarter, setQuarter] = useState("2025-Quarter 1");
+  const [auditor, setAuditor] = useState("All");
+  const [region, setRegion] = useState("All");
+  const [type, setType] = useState("All");
+  const [outlet, setOutlet] = useState("All");
+  const [status, setStatus] = useState("All");
+
+  const filteredRows = useMemo(() => {
+    return rows.filter((row) => {
+      const searchValue = `${row.name} ${row.id} ${row.auditor}`.toLowerCase();
+      const matchesQuery = !query || searchValue.includes(query.toLowerCase());
+
+      return (
+        matchesQuery &&
+        row.quarter === quarter &&
+        (auditor === "All" || row.auditor === auditor) &&
+        (region === "All" || row.region === region) &&
+        (type === "All" || row.type === type) &&
+        (outlet === "All" || row.outlet === outlet) &&
+        (status === "All" || row.status === status)
+      );
+    });
+  }, [auditor, outlet, query, quarter, region, status, type]);
+
+  const summary = useMemo(
+    () =>
+      ["Pending", "Ongoing", "Approval", "Submitted"].map((statusLabel) => ({
+        statusLabel,
+        count: filteredRows.filter((row) => row.status === statusLabel).length,
+      })),
+    [filteredRows],
+  );
+
+  return (
+    <div className="min-h-full min-w-0 bg-transparent px-1 py-1">
+      <Motion.div
+        initial={{ opacity: 0, y: 14 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="mb-4 flex min-w-full items-center gap-4 rounded-[28px] border border-white/70 bg-[linear-gradient(135deg,rgba(255,255,255,0.95),rgba(239,246,255,0.88))] px-5 py-4 shadow-[0_20px_60px_rgba(59,130,246,0.12)] backdrop-blur-sm"
+      >
+        <div className="flex h-14 w-14 items-center justify-center rounded-[18px] bg-[#0F172A] text-white shadow-[0_18px_35px_rgba(15,23,42,0.18)]">
+          <Logo />
+        </div>
+        <div className="flex flex-1 flex-col gap-1">
+          <div className="flex flex-wrap items-center gap-3">
+            <h1 className="text-lg/6 align-text-top font-semibold tracking-[-0.03em]">
               Evaluation Score
             </h1>
-            <h2 className="ml-4 text text-text-gray text-xs/4 ">Lorem Ipsum</h2>
+            <span className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-700">
+              <Radar className="h-3.5 w-3.5" />
+              Active quarter
+            </span>
+          </div>
+          <h2 className="text-xs/5 text-slate-500">Quarter 1 performance summary across audited centers.</h2>
+        </div>
+      </Motion.div>
+
+      <div className="min-w-0 rounded-[30px] border border-white/70 bg-[rgba(255,255,255,0.82)] p-4 shadow-[0_24px_80px_rgba(15,23,42,0.08)] backdrop-blur-sm sm:p-5">
+        <div className="mb-4 flex flex-col gap-4 rounded-[24px] border border-slate-200/70 bg-[linear-gradient(135deg,rgba(248,250,252,0.95),rgba(239,246,255,0.92))] p-4 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="mb-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">
+              Filters
+            </p>
+            <h2 className="text-2xl font-semibold tracking-[-0.04em] text-slate-900">
+              Center performance
+            </h2>
+          </div>
+          <div className="flex flex-wrap items-center gap-2 text-xs font-medium text-slate-600">
+            <span className="rounded-full bg-white px-3 py-1.5 shadow-sm">{quarter}</span>
+            <span className="rounded-full bg-white px-3 py-1.5 shadow-sm">{filteredRows.length} centers</span>
+            <span className="rounded-full bg-white px-3 py-1.5 shadow-sm">
+              {filteredRows.reduce((sum, row) => sum + Number(row.scores[0]), 0) || 0} CX total
+            </span>
           </div>
         </div>
 
-        <div className=" rounded-[16px] border-[1.5px] p-4 bg-white border-gray-border1   ">
-          <div className="flex items-end">
-            <QuarterSelector />
-            <Searchcomponent />
-          </div>
+        <div className="grid min-w-0 gap-3 lg:grid-cols-[220px_minmax(0,1fr)]">
+          <AnimatedSelect
+            label="Quarter"
+            value={quarter}
+            onChange={setQuarter}
+            options={quarterOptions}
+          />
+          <SearchInput
+            value={query}
+            onChange={setQuery}
+            placeholder="Search by center, code, or auditor"
+          />
+        </div>
 
-          <div className="flex flex-wrap gap-1 sm:gap-4 justify-center items-center ">
-            <Dropdown text="Auditor" />
-            <Dropdown text="Region" />
-            <Dropdown text="Type" />
-            <Dropdown text="Outlet" />
-            <Dropdown text="Status" />
+        <div className="mt-3 flex min-w-0 flex-wrap gap-3 items-end">
+          <AnimatedSelect
+            className="min-w-[170px] flex-1"
+            label="Auditor"
+            value={auditor}
+            onChange={setAuditor}
+            options={["All", "Sara Ahmed", "Mazen Khaled", "Noor Abbas"]}
+          />
+          <AnimatedSelect
+            className="min-w-[170px] flex-1"
+            label="Region"
+            value={region}
+            onChange={setRegion}
+            options={["All", "West", "Central", "East", "North"]}
+          />
+          <AnimatedSelect
+            className="min-w-[170px] flex-1"
+            label="Type"
+            value={type}
+            onChange={setType}
+            options={["All", "Flagship", "Retail", "Express"]}
+          />
+          <AnimatedSelect
+            className="min-w-[170px] flex-1"
+            label="Outlet"
+            value={outlet}
+            onChange={setOutlet}
+            options={["All", "TH", "SA", "AE"]}
+          />
+          <AnimatedSelect
+            className="min-w-[170px] flex-1"
+            label="Status"
+            value={status}
+            onChange={setStatus}
+            options={["All", "Pending", "Ongoing", "Approval", "Submitted"]}
+          />
+        </div>
 
-            <div className="ml-auto  max-h-7 mb-4 sm:mb-0  font-inter py-1.5 flex flex-wrap flex-shrink justify-center  items-center  sm:gap-2 ">
-              <Pending/>
-              <h2 className="text-text-gray text-xs  font-normal">Pending</h2>
-              <h2 classname="text-sm font-normal">12</h2>
-              <Ongoing/>
-              <h2 className="text-text-gray text-xs">Ongoing</h2>
-              <h2 classname="text-sm">12</h2>
-             <Approval/>
-              <h2 className="text-text-gray text-xs">Approval</h2>
-              <h2 classname="text-sm">12</h2>
-             <Submitted/>
-              <h2 className="text-text-gray text-xs">Submitted</h2>
-              <h2 classname="">12</h2>
-            </div>
-          </div>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {summary.map(({ statusLabel, count }) => (
+            <StatusSummary key={statusLabel} status={statusLabel} count={count} />
+          ))}
+        </div>
 
-          {/* table */}
-
-          <div className="mt-4 border-[1.5px] border-gray-border1  rounded-[12px] overflow-hidden">
-            <div className="overflow-x-auto   ">
-              <table className="w-full text-sm text-left rtl:text-right text-black-table [&_tr>td:nth-child(9)]:shadowborder">
-                <thead className="p-3 h-15 ">
-                  <tr className="border-b-1 border-gray-border1  bg-[#F6F6F6] text-xs font-inter   ">
-                    <th
-                      scope="col"
-                      className="font-normal px-3 w-auto min-w-67.5 "
-                    >
-                      <h2 className="flex items-center gap-1">
-                        Center Name{" "}
-                        <ChevronsUpDown className="text-[#84838A] w-4 h-4" />{" "}
-                      </h2>
+        <div className="mt-4 min-w-0 overflow-hidden rounded-[20px] border border-slate-200/80 bg-white shadow-[0_20px_45px_rgba(148,163,184,0.14)]">
+          <div className="max-w-full overflow-x-auto">
+            <table className="w-full text-left text-sm text-black-table">
+              <thead className="h-15">
+                <tr className="border-b border-gray-border1 bg-[linear-gradient(180deg,#F8FAFC_0%,#F1F5F9_100%)] text-xs font-inter">
+                  <th className="min-w-[240px] px-3 font-normal">
+                    <span className="flex items-center gap-1">
+                      Center Name
+                      <ChevronsUpDown className="h-4 w-4 text-[#84838A]" />
+                    </span>
+                  </th>
+                  <th className="min-w-[140px] p-3 font-normal">
+                    <span className="flex items-center gap-1">
+                      Auditor
+                      <ChevronsUpDown className="h-4 w-4 text-[#84838A]" />
+                    </span>
+                  </th>
+                  {scoreHeaders.map((header) => (
+                    <th key={header} className="min-w-[130px] px-3 py-3 font-normal">
+                      <span className="flex items-center gap-1">
+                        {header}
+                        <ChevronsUpDown className="h-4 w-4 text-[#84838A]" />
+                      </span>
                     </th>
-                    <th scope="col" className="p-3  font-normal min-w-[89px] ">
-                      <h2 className="flex items-center gap-2">
-                        Auditor{" "}
-                        <ChevronsUpDown className="text-[#84838A] w-4 h-4" />
-                      </h2>
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3 font-normal min-w-[107px] "
-                    >
-                      <h2 className="flex items-center  gap-2 ">
-                        Customer Experience{" "}
-                        <ChevronsUpDown className="text-[#84838A] w-4 h-4 flex-none" />
-                      </h2>
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3 font-normal min-w-[122px]"
-                    >
-                      <h2 className="flex items-center gap-2">
-                        Equipment Management{" "}
-                        <ChevronsUpDown className="text-[#84838A] w-4 h-4 flex-none" />
-                      </h2>
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3 font-normal min-w-[99px]"
-                    >
-                      <h2 className="flex items-center gap-2">
-                        {" "}
-                        Battery Bussiness{" "}
-                        <ChevronsUpDown className="text-[#84838A] w-4 h-4 flex-none" />
-                      </h2>
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3 font-normal  border-gray-200 min-w-[121px] "
-                    >
-                      <h2 className="flex items-center gap-2">
-                        {" "}
-                        Periodic Maintenance{" "}
-                        <ChevronsUpDown className="text-[#84838A] w-4 h-4 flex-none" />
-                      </h2>
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3 font-normal min-w-[99px] "
-                    >
-                      <h2 className="flex items-center gap-2">
-                        {" "}
-                        Tire Bussiness{" "}
-                        <ChevronsUpDown className="text-[#84838A] w-4 h-4 flex-none" />
-                      </h2>
-                    </th>
-
-                    <th
-                      scope="col"
-                      className="px-3 py-3 font-normal  border-gray-200 min-w-[121px]  "
-                    >
-                      <h2 className="flex items-center gap-2">
-                        {" "}
-                        Periodic Maintenance{" "}
-                        <ChevronsUpDown className="text-[#84838A] w-4 h-4 flex-none" />
-                      </h2>
-                    </th>
-
-                    <th
-                      scope="col"
-                      className="px-3 py-3 font-normal min-w-15.25 text-center border-l border-gray-border1 drop-shadow-sm    bg-[#F6F6F6]  sticky right-[160px] z-10"
-                    >
-                      Score
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3 font-normal min-w-22.5 text-center  bg-[#F6F6F6] sticky right-[70px] z-10 "
-                    >
-                      Status
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3 font-normal text-center  min-w-19  bg-[#F6F6F6] sticky right-[0px] z-10  "
-                    >
-                      Action
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="">
-                  {items.map((item) => (
-                    <tr
-                      key={item.id}
-                      className=" hover:bg-gray-50   border-b  border-gray-border1"
-                    >
-                      <Tablecontent
-                        id={item.id}
-                        name={item.name}
-                        value={item.value}
-                        className={item.className}
-                        btntext={item.btntext}
-                        color1={item.color}
-                        color2={item.color2}
-                        color3={item.color3}
-                      />
-                    </tr>
                   ))}
-                </tbody>
-              </table>
-            </div>
+                  <th className="sticky right-[160px] z-10 min-w-[90px] border-l border-slate-200 bg-[#F8FAFC] px-3 py-3 text-center font-normal">
+                    Score
+                  </th>
+                  <th className="sticky right-[70px] z-10 min-w-[100px] bg-[#F8FAFC] px-3 py-3 text-center font-normal">
+                    Status
+                  </th>
+                  <th className="sticky right-0 z-10 min-w-[80px] bg-[#F8FAFC] px-3 py-3 text-center font-normal">
+                    Outlet
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {filteredRows.length ? (
+                  filteredRows.map((row) => {
+                    const totalScore = Math.round(
+                      row.scores.reduce((sum, value) => sum + Number(value), 0) / row.scores.length,
+                    );
+
+                    return (
+                      <tr
+                        key={row.id}
+                        className="border-b border-gray-border1 transition-colors duration-150 hover:bg-sky-50/60"
+                      >
+                        <td className="px-3 py-4">
+                          <div className="flex flex-col gap-1">
+                            <span className="font-medium text-slate-900">{row.name}</span>
+                            <span className="text-xs text-slate-500">{row.id}</span>
+                          </div>
+                        </td>
+                        <td className="p-3 text-slate-700">{row.auditor}</td>
+                        {row.scores.map((score, index) => (
+                          <td key={`${row.id}-${scoreHeaders[index]}`} className="px-3 py-3 text-slate-700">
+                            {score}
+                          </td>
+                        ))}
+                        <td className="sticky right-[160px] z-10 border-l border-slate-200 bg-white px-3 py-3 text-center font-semibold text-slate-900">
+                          {totalScore}
+                        </td>
+                        <td className="sticky right-[70px] z-10 bg-white px-3 py-3 text-center">
+                          <span className={`inline-flex rounded-full px-2.5 py-1 text-xs font-semibold ${row.badgeClass}`}>
+                            {row.status}
+                          </span>
+                        </td>
+                        <td className="sticky right-0 z-10 bg-white px-3 py-3 text-center text-slate-600">
+                          {row.outlet}
+                        </td>
+                      </tr>
+                    );
+                  })
+                ) : (
+                  <tr>
+                    <td colSpan={11} className="px-4 py-10 text-center text-sm text-slate-500">
+                      No centers match the selected filters.
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

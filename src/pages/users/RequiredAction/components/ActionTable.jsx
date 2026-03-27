@@ -2,7 +2,7 @@ import ChevronUpDown from "../../../../assets/ChevronUpDown";
 import ActionTableList from "./ActionTableList";
 import Auditor from "./Auditor.png";
 
-export default function ActionTable() {
+export default function ActionTable({ items }) {
   const avatar1 = (
     <svg
       width="28"
@@ -76,10 +76,13 @@ export default function ActionTable() {
             </thead>
 
             <tbody>
-              <ActionTableList avatar={avatar1} />
-              <ActionTableList avatar={avatar2} />
-              <ActionTableList avatar={avatar1} />
-              <ActionTableList avatar={avatar2} />
+              {items.map((item, index) => (
+                <ActionTableList
+                  key={item.id}
+                  item={item}
+                  avatar={index % 2 === 0 ? avatar1 : avatar2}
+                />
+              ))}
             </tbody>
           </table>
         </div>

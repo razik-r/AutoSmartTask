@@ -1,12 +1,13 @@
 import ProblemImg from "./Problemimg.png";
 import Auditor from "./Auditor.png";
 
-import React, { useState } from "react";
+import { useState } from "react";
+import { motion as Motion } from "framer-motion";
 import ActionCardModal from "./ActionCardModal";
 import RedCircle from "../assets/RedCircle";
 import DocumentIcon from "../assets/DocumentIcon";
 
-export default function ActionCard() {
+export default function ActionCard({ item }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const openPopup = () => {
@@ -19,52 +20,53 @@ export default function ActionCard() {
 
   return (
     <>
-      <button
+      <Motion.button
         onClick={openPopup}
-        className=" w-auto   bg-[#FFFFFF] border border-gray-border1 rounded-[12px] p-4 mt-6 flex flex-col  gap-3 shadowbox hover:cursor-pointer "
+        whileHover={{ y: -4 }}
+        whileTap={{ scale: 0.99 }}
+        className="mt-0 flex w-full min-w-0 flex-col gap-3 rounded-[12px] border border-gray-border1 bg-[#FFFFFF] p-4 shadowbox hover:cursor-pointer"
       >
-        <div className="flex flex-col gap-2  ">
-          <div className="flex  justify-start  gap-2">
+        <div className="flex min-w-0 flex-col gap-2">
+          <div className="flex min-w-0 justify-start gap-2">
             <span>
               <RedCircle/>
             </span>
-            <h1 className=" text-sm/4.5 font-medium  text=[#212121]">
-              Is the fog machine functioning correctly?
+            <h1 className="min-w-0 break-words text-left text-sm/4.5 font-medium text-[#212121]">
+              {item.title}
             </h1>
           </div>
-          <p className=" ml-3 text-sm/4.5 font-normal text-text-gray ">
-            Is it well-maintained and free from clogs or leaks?
+          <p className="ml-3 break-words text-left text-sm/4.5 font-normal text-text-gray">
+            {item.question}
           </p>
         </div>
 
-        <div className="flex flex-col   rounded-[8px] border border-gray-border p-3 gap-2 bg-[#F6F6F6]">
-          <div className="flex flex-col gap-2 ">
-            <h1 className="text-sm/4.5 font-medium text-[#E14026] text-left">
-              Blocked nozzles or leaks can reduce performance and pose safety
-              risks.
+        <div className="flex min-w-0 flex-col gap-2 rounded-[8px] border border-gray-border bg-[#F6F6F6] p-3">
+          <div className="flex min-w-0 flex-col gap-2">
+            <h1 className="break-words text-left text-sm/4.5 font-medium text-[#E14026]">
+              {item.problem}
             </h1>
-            <p className="text-sm/4.5 font-normal text-text-gray text-left">
-              Clean nozzles, check for leaks, and use recommended fog fluid.
+            <p className="break-words text-left text-sm/4.5 font-normal text-text-gray">
+              {item.recommendation}
             </p>
           </div>
 
           <div className="flex gap-2">
-            <img className="size-7" src={ProblemImg} />
+            <img className="size-7 shrink-0" src={ProblemImg} />
            <DocumentIcon/>
           </div>
         </div>
 
-        <div className="flex gap-2 items-center justify-between ">
-          <div className="flex gap-2 items-center">
+        <div className="flex min-w-0 flex-wrap items-center justify-between gap-2">
+          <div className="flex items-center gap-2">
             <p className="text-text-gray text-xs/4 font-normal">PIC</p>
-            <img className="size-6" src={Auditor} />
+            <img className="size-6 shrink-0" src={Auditor} />
           </div>
-          <div className="flex gap-2">
-            <p className="text-text-gray text-xs/4 ">Next Action On </p>
-            <p className="text-[#212121] text-xs/4">03 sep 2024</p>
+          <div className="flex min-w-0 flex-wrap gap-2 text-right">
+            <p className="text-text-gray text-xs/4">Next Action On</p>
+            <p className="text-[#212121] text-xs/4">{item.nextAction}</p>
           </div>
         </div>
-      </button>
+      </Motion.button>
 
       {isOpen && (
         <div className="fixed inset-1  bg-gray bg-opacity-80 backdrop-blur-sm flex items-center justify-center z-50 ">

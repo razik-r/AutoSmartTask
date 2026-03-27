@@ -1,81 +1,67 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { motion as Motion } from "framer-motion";
+
+const tabs = [
+  {
+    id: "Report",
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+        <path
+          d="M13.49 1.67H6.51c-3.03 0-4.84 1.81-4.84 4.84v6.98c0 3.03 1.81 4.84 4.84 4.84h6.98c3.03 0 4.84-1.81 4.84-4.84V6.51c0-3.03-1.81-4.84-4.84-4.84ZM8.31 12.42l-1.88 1.87a.6.6 0 0 1-.88 0l-.63-.62a.62.62 0 1 1 .88-.88l.19.18 1.43-1.43a.62.62 0 1 1 .88.88Zm0-5.83L6.43 8.46a.6.6 0 0 1-.88 0l-.63-.62a.62.62 0 1 1 .88-.88l.19.18 1.43-1.43a.62.62 0 1 1 .88.88Zm6.32 7.26h-4.38a.62.62 0 1 1 0-1.25h4.38a.62.62 0 1 1 0 1.25Zm0-5.83h-4.38a.62.62 0 1 1 0-1.25h4.38a.62.62 0 1 1 0 1.25Z"
+          fill="currentColor"
+        />
+      </svg>
+    ),
+  },
+  {
+    id: "Detailed",
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+        <path d="M11.96 1.67H8.04c-.87 0-1.58.7-1.58 1.56v.79c0 .87.7 1.57 1.57 1.57h3.93c.87 0 1.57-.7 1.57-1.57v-.79c.01-.87-.7-1.56-1.57-1.56Z" fill="currentColor" />
+        <path d="M14.37 4.02c0 1.33-1.08 2.41-2.41 2.41H8.04c-1.33 0-2.41-1.08-2.41-2.41 0-.47-.5-.76-.92-.54-1.18.63-1.98 1.87-1.98 3.29v7.84c0 2.05 1.68 3.73 3.73 3.73h7.07c2.05 0 3.73-1.68 3.73-3.73V6.77c0-1.43-.8-2.67-1.98-3.29-.42-.22-.91.07-.91.54Zm-1.58 6.59-3.34 3.33a.62.62 0 0 1-.88 0l-1.25-1.25a.62.62 0 1 1 .88-.88l.81.81 2.89-2.89a.62.62 0 1 1 .88.88Z" fill="currentColor" />
+      </svg>
+    ),
+  },
+];
 
 export default function ReportDetailedSwitch({ onTabChange }) {
   const [selectedTab, setSelectedTab] = useState("Report");
 
-  const handleTabChange = (newTab) => {
+  function handleTabChange(newTab) {
     setSelectedTab(newTab);
-    onTabChange(newTab); //
-  };
+    onTabChange(newTab);
+  }
 
   return (
-    <div className="flex justify-center items-center  ">
-      <button
-        onClick={() => handleTabChange("Report")}
-        className={`px-4 py-2   text-sm/4.5 font-medium hover:cursor-pointer ${
-          selectedTab === "Report"
-            ? "bg-[#FFFFFF] text-[#E14026]     border-b-[1.5px] border-[#FF0000]" // Active state
-            : " text-[#B5B5B5] border-b border-[#F1F1F1] " // Inactive state
-        } transition-normal duration-150 ease-out `}
-      >
-        <div className="flex justify-center items-center gap-2">
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M13.4916 1.66675H6.50829C3.47496 1.66675 1.66663 3.47508 1.66663 6.50841V13.4917C1.66663
-          16.5251 3.47496 18.3334 6.50829 18.3334H13.4916C16.525 18.3334 18.3333 16.5251 18.3333 13.4917V6.50841C18.3333
-           3.47508 16.525 1.66675 13.4916 1.66675ZM8.30829 12.4167L6.43329 14.2917C6.30829 14.4167 6.14996 14.4751 5.99163
-            14.4751C5.83329 14.4751 5.66663 14.4167 5.54996 14.2917L4.92496 13.6667C4.67496 13.4251 4.67496 13.0251 4.92496 12.7834C5.16663 
-            12.5417 5.55829 12.5417 5.80829 12.7834L5.99163 12.9667L7.42496 11.5334C7.66663 11.2917 8.05829 11.2917 8.30829 11.5334C8.54996 11.7751 8.54996
-             12.1751 8.30829 12.4167ZM8.30829 6.58341L6.43329 8.45841C6.30829 8.58341 6.14996 8.64175 5.99163 8.64175C5.83329 8.64175 5.66663 8.58341 5.54996 8.45841L4.92496
-              7.83341C4.67496 7.59175 4.67496 7.19175 4.92496 6.95008C5.16663 6.70841 5.55829 6.70841 5.80829 6.95008L5.99163 7.13341L7.42496 5.70008C7.66663 5.45841 8.05829
-               5.45841 8.30829 5.70008C8.54996 5.94175 8.54996 6.34175 8.30829 6.58341ZM14.6333 13.8501H10.2583C9.91663 13.8501 9.63329 13.5667 9.63329 13.2251C9.63329 12.8834 9.91663
-                12.6001 10.2583 12.6001H14.6333C14.9833 12.6001 15.2583 12.8834 15.2583 13.2251C15.2583 13.5667 14.9833 13.8501 14.6333 13.8501ZM14.6333 8.01675H10.2583C9.91663 8.01675 
-                9.63329 7.73341 9.63329 7.39175C9.63329 7.05008 9.91663 6.76675 10.2583 6.76675H14.6333C14.9833 6.76675 15.2583 7.05008 15.2583 7.39175C15.2583 7.73341 14.9833 8.01675 
-                14.6333 8.01675Z"
-              fill={selectedTab === "Report" ? "#E14026" : "#B5B5B5"}
-            />
-          </svg>
-          Report
-        </div>
-      </button>
+    <div className="inline-flex flex-wrap items-center rounded-full border border-slate-200/80 bg-white/70 p-1 shadow-[0_10px_30px_rgba(15,23,42,0.06)]">
+      {tabs.map((tab, index) => {
+        const active = selectedTab === tab.id;
 
-      {/* grid Button */}
-      <button
-        onClick={() => handleTabChange("Detailed")}
-        className={`px-4 py-2    text-sm/4.5 font-medium hover:cursor-pointer ${
-          selectedTab === "Detailed"
-            ? "bg-[#FFFFFF] text-[#E14026] text-nowrap    border-b-[1.5px] border-[#FF0000]" // Active state
-            : " text-[#B5B5B5] border-b border-[#F1F1F1]" // Inactive state
-        } transition-normal duration-150 ease-linear`}
-      >
-        <div className="flex justify-center items-center gap-2 text-nowrap">
-          <div className="size-5">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M11.9582 1.66675H8.04155C7.17489 1.66675 6.46655 2.36675 6.46655 3.23341V4.01675C6.46655 4.88341 7.16655 5.58341 8.03322 5.58341H11.9582C12.8249 5.58341 13.5249 4.88341 13.5249 4.01675V3.23341C13.5332 2.36675 12.8249 1.66675 11.9582 1.66675Z"
-                fill={selectedTab === "Detailed" ? "#E14026" : "#B5B5B5"}
+        return (
+          <Motion.button
+            key={tab.id}
+            type="button"
+            onClick={() => handleTabChange(tab.id)}
+            whileTap={{ scale: 0.99 }}
+            className="relative rounded-full px-4 py-2.5 text-sm font-medium"
+          >
+            {active ? (
+              <Motion.span
+                layoutId="required-action-tab"
+                className="absolute inset-0 rounded-full bg-[#1F2937] shadow-[0_16px_30px_rgba(31,41,55,0.18)]"
+                transition={{ type: "spring", stiffness: 420, damping: 34 }}
               />
-              <path
-                d="M14.3667 4.01665C14.3667 5.34165 13.2834 6.42498 11.9584 6.42498H8.0417C6.7167 6.42498 5.63337 5.34165 5.63337 4.01665C5.63337 3.54998 5.13337 3.25832 4.7167 3.47498C3.5417 4.09998 2.7417 5.34165 2.7417 6.76665V14.6083C2.7417 16.6583 4.4167 18.3333 6.4667 18.3333H13.5334C15.5834 18.3333 17.2584 16.6583 17.2584 14.6083V6.76665C17.2584 5.34165 16.4584 4.09998 15.2834 3.47498C14.8667 3.25832 14.3667 3.54998 14.3667 4.01665ZM12.7834 10.6083L9.45003 13.9416C9.32503 14.0666 9.1667 14.125 9.00837 14.125C8.85003 14.125 8.6917 14.0666 8.5667 13.9416L7.3167 12.6916C7.07503 12.45 7.07503 12.05 7.3167 11.8083C7.55837 11.5666 7.95837 11.5666 8.20003 11.8083L9.00837 12.6166L11.9 9.72498C12.1417 9.48332 12.5417 9.48332 12.7834 9.72498C13.025 9.96665 13.025 10.3666 12.7834 10.6083Z"
-                fill={selectedTab === "Detailed" ? "#E14026" : "#B5B5B5"}
-              />
-            </svg>
-          </div>
-          Detailed Page
-        </div>
-      </button>
+            ) : null}
+            <span className={`relative z-10 flex items-center gap-2 transition-colors duration-200 ${active ? "text-white" : "text-[#7C7C86]"}`}>
+              {tab.icon}
+              {tab.id === "Detailed" ? "Detailed Page" : tab.id}
+              <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold transition-colors duration-200 ${active ? "bg-white/14 text-white/90" : "bg-slate-100 text-slate-500"}`}>
+                {index === 0 ? "List" : "Board"}
+              </span>
+            </span>
+          </Motion.button>
+        );
+      })}
     </div>
   );
 }

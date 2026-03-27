@@ -1,73 +1,265 @@
-// import ActionHeader from "./ActionHeader"
-import CenterSelector from "./CenterSelector";
-import Searchcomponent from "./Searchcomponent";
-import ActionDropdown from "./ActionDropdown";
+import { useMemo, useState } from "react";
+import { motion as Motion } from "framer-motion";
+import { CirclePlus } from "lucide-react";
+import AnimatedSelect from "../../../../components/ui/AnimatedSelect";
+import SearchInput from "../../../../components/ui/SearchInput";
 import DetailedPageCard from "./DetailedPageCard";
 
+const columnConfig = [
+  { id: "pending", title: "Pending", tint: "from-rose-50 to-orange-50", accent: "bg-[#E14026]" },
+  { id: "progress", title: "In Progress", tint: "from-amber-50 to-yellow-50", accent: "bg-[#ED8F22]" },
+  { id: "completed", title: "Completed", tint: "from-emerald-50 to-lime-50", accent: "bg-[#3F9A26]" },
+];
+
+const initialCards = [
+  {
+    id: "card-1",
+    status: "pending",
+    title: "Lexus Facility Standards for customer toilets require dual-area verification.",
+    code: "Q12345",
+    attachments: 6,
+    dueDate: "03 Sep 2024",
+    pic: "Ahmed",
+    priority: "High",
+    center: "Al Naseem",
+    term: "2025-Quarter 1",
+    auditor: "Sara Ahmed",
+  },
+  {
+    id: "card-2",
+    status: "pending",
+    title: "Battery section pricing labels are missing on premium SKUs.",
+    code: "Q12891",
+    attachments: 3,
+    dueDate: "05 Sep 2024",
+    pic: "Mazen",
+    priority: "Medium",
+    center: "Dubai 1 - Diera",
+    term: "2025-Quarter 1",
+    auditor: "Mazen Khaled",
+  },
+  {
+    id: "card-3",
+    status: "progress",
+    title: "Workshop tool shadow board needs full restoration after audit findings.",
+    code: "Q13008",
+    attachments: 4,
+    dueDate: "07 Sep 2024",
+    pic: "Noor",
+    priority: "High",
+    center: "Ras Al Khaima",
+    term: "2025-Quarter 2",
+    auditor: "Noor Abbas",
+  },
+  {
+    id: "card-4",
+    status: "progress",
+    title: "POS printer replacement is under procurement approval.",
+    code: "Q13552",
+    attachments: 2,
+    dueDate: "08 Sep 2024",
+    pic: "Ahmed",
+    priority: "Low",
+    center: "Dubai 1 - Diera",
+    term: "2025-Quarter 1",
+    auditor: "Sara Ahmed",
+  },
+  {
+    id: "card-5",
+    status: "completed",
+    title: "Entrance cleanliness recovery action completed and verified by site lead.",
+    code: "Q13877",
+    attachments: 5,
+    dueDate: "01 Sep 2024",
+    pic: "Mazen",
+    priority: "Low",
+    center: "Al Naseem",
+    term: "2025-Quarter 1",
+    auditor: "Sara Ahmed",
+  },
+];
+
 export default function ExpandView() {
+  const [center, setCenter] = useState("All");
+  const [term, setTerm] = useState("All");
+  const [auditor, setAuditor] = useState("All");
+  const [pic, setPic] = useState("All");
+  const [query, setQuery] = useState("");
+  const [sortBy, setSortBy] = useState("Priority");
+  const [cards, setCards] = useState(initialCards);
+  const [draggingId, setDraggingId] = useState(null);
+  const [dropColumn, setDropColumn] = useState(null);
+
+  const filteredCards = useMemo(() => {
+    const visibleCards = cards.filter((card) => {
+      const matchesQuery =
+        !query ||
+        `${card.title} ${card.code} ${card.pic} ${card.center}`.toLowerCase().includes(query.toLowerCase());
+
+      return (
+        matchesQuery &&
+        (center === "All" || card.center === center) &&
+        (term === "All" || card.term === term) &&
+        (auditor === "All" || card.auditor === auditor) &&
+        (pic === "All" || card.pic === pic)
+      );
+    });
+
+    return [...visibleCards].sort((left, right) => {
+      if (sortBy === "Due date") {
+        return new Date(left.dueDate).getTime() - new Date(right.dueDate).getTime();
+      }
+
+      if (sortBy === "Recently updated") {
+        return right.code.localeCompare(left.code);
+      }
+
+      const priorityOrder = { High: 0, Medium: 1, Low: 2 };
+      return priorityOrder[left.priority] - priorityOrder[right.priority];
+    });
+  }, [auditor, cards, center, pic, query, sortBy, term]);
+
+  function handleDragStart(event, cardId) {
+    event.dataTransfer.setData("text/plain", cardId);
+    event.dataTransfer.effectAllowed = "move";
+    setDraggingId(cardId);
+  }
+
+  function handleDrop(columnId) {
+    if (!draggingId) {
+      return;
+    }
+
+    setCards((current) =>
+      current.map((card) =>
+        card.id === draggingId ? { ...card, status: columnId } : card,
+      ),
+    );
+    setDraggingId(null);
+    setDropColumn(null);
+  }
+
   return (
     <>
-      <div className="flex gap-3 ">
-        <CenterSelector />
+      <div className="grid min-w-0 gap-3 lg:grid-cols-[220px_minmax(0,1fr)]">
+        <AnimatedSelect
+          label="Center"
+          value={center}
+          onChange={setCenter}
+          options={["All", "Al Naseem", "Dubai 1 - Diera", "Ras Al Khaima"]}
+          searchable
+          searchPlaceholder="Search centers"
+        />
+        <SearchInput
+          value={query}
+          onChange={setQuery}
+          placeholder="Search tasks, code, or PIC"
+        />
       </div>
 
-      <div className="flex gap-3  items-end justify-center flex-wrap  ">
-        <ActionDropdown text="Select Terms" />
-        <ActionDropdown text="Select Auditor" />
-        <ActionDropdown text="Select PIC" />
+      <div className="mt-3 flex min-w-0 flex-wrap gap-3 items-end justify-start">
+        <AnimatedSelect
+          className="min-w-[170px] flex-1"
+          label="Term"
+          value={term}
+          onChange={setTerm}
+          options={["All", "2025-Quarter 1", "2025-Quarter 2"]}
+        />
+        <AnimatedSelect
+          className="min-w-[170px] flex-1"
+          label="Auditor"
+          value={auditor}
+          onChange={setAuditor}
+          options={["All", "Sara Ahmed", "Mazen Khaled", "Noor Abbas"]}
+        />
+        <AnimatedSelect
+          className="min-w-[170px] flex-1"
+          label="PIC"
+          value={pic}
+          onChange={setPic}
+          options={["All", "Ahmed", "Mazen", "Noor"]}
+        />
+        <AnimatedSelect
+          className="min-w-[170px] flex-1"
+          label="Sort"
+          value={sortBy}
+          onChange={setSortBy}
+          options={["Priority", "Due date", "Recently updated"]}
+        />
+      </div>
 
-        <Searchcomponent />
+      <div className="mt-4 min-w-0 overflow-visible">
+        <div className="grid min-w-0 grid-cols-1 gap-4 lg:grid-cols-3 md:grid-cols-2">
+        {columnConfig.map((column, index) => {
+          const columnCards = filteredCards.filter((card) => card.status === column.id);
+          const isDropTarget = dropColumn === column.id;
 
-        <div className="flex  flex-wrap pl-2.5 py-2 pr-2 min-h-10 min-w-35 border-[1.5px]  border-gray-border1 rounded-[8px]  justify-between items-center">
-          <div className="flex">
-            <p className="text-xs/4 text-[#212121] ">Sort By</p>
-          </div>
-          <div className="size-5 text-center flex">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+          return (
+            <Motion.div
+              key={column.id}
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.06 }}
+              onDragOver={(event) => {
+                event.preventDefault();
+                setDropColumn(column.id);
+              }}
+              onDragLeave={() => setDropColumn((current) => (current === column.id ? null : current))}
+              onDrop={(event) => {
+                event.preventDefault();
+                handleDrop(column.id);
+              }}
+              className={`min-w-0 w-full rounded-[18px] border p-3 transition ${
+                isDropTarget
+                  ? "border-orange-300 bg-orange-50/70 shadow-[0_18px_35px_rgba(249,115,22,0.12)]"
+                  : "border-gray-border1 bg-[#F9F9F9]"
+              }`}
             >
-              <path
-                d="M14.3758 3.33338L14.2909 3.33908C13.9858 3.38047 13.7508 3.64196 13.7508 3.95838L13.75 14.535L11.0668 11.8537L10.9967 11.7932C10.7519 11.6118 10.4047 11.6321 10.1828 11.854C9.93892 12.0983 9.93909 12.494 10.1833 12.738L13.9364 16.488L14.0065 16.5485C14.2513 16.7299 14.5985 16.7095 14.8203 16.4876L18.5672 12.7376L18.6276 12.6675C18.8091 12.4227 18.7888 12.0755 18.5668 11.8537L18.4967 11.7932C18.2519 11.6118 17.9047 11.6321 17.6828 11.854L15 14.5384L15.0008 3.95838L14.995 3.87357C14.9537 3.5685 14.6922 3.33338 14.3758 3.33338ZM5.17868 3.51645L1.43304 7.26233L1.37253 7.33243C1.19099 7.57711 1.21118 7.92433 1.43308 8.14621L1.50318 8.20673C1.74786 8.38829 2.09508 8.36804 2.31696 8.14618L4.9975 5.4643L4.99805 16.0458L5.00376 16.1306C5.04514 16.4357 5.30664 16.6708 5.62305 16.6708L5.70786 16.6651C6.01293 16.6237 6.24805 16.3622 6.24805 16.0458L6.2475 5.46597L8.93325 8.14668L9.00342 8.20712C9.24825 8.38838 9.59542 8.36788 9.81709 8.14572C10.0609 7.90138 10.0605 7.50564 9.81617 7.26183L6.06209 3.51595L5.99198 3.45555C5.7473 3.27438 5.40039 3.29472 5.17868 3.51645Z"
-                fill="#E14026"
-              />
-            </svg>
-          </div>
-        </div>
-      </div>
+              <div className={`rounded-[14px] bg-gradient-to-r ${column.tint} p-3`}>
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <div className="flex min-w-0 items-center gap-3">
+                    <span className={`h-2.5 w-2.5 rounded-full ${column.accent}`} />
+                    <p className="truncate text-[16px]/5 font-medium text-[#212121]">
+                      {column.title}
+                    </p>
+                    <span className="rounded-full bg-white/85 px-2 py-1 text-xs font-medium text-slate-600">
+                      {columnCards.length}
+                    </span>
+                  </div>
 
-      <div className="grid lg:grid-cols-3 md:grid-col-2 grid-col-1 justify-center gap-4 mt-4">
-        <div className="  bg-[#F9F9F9]  border border-gray-border1 p-3 rounded-[12px] flex flex-col gap-2">
-          <p className="text-[16px]/5 text-[#212121] font-medium ml-[6px]">
-            Pending
-            <span className="text-[#84838A] ml-[2px] text-sm/4.5 font-normal">
-              4
-            </span>{" "}
-          </p>
-          <DetailedPageCard />
-          <DetailedPageCard />
-          <DetailedPageCard />
-        </div>
-        <div className=" bg-[#F9F9F9]  border border-gray-border1 p-3 rounded-[12px] flex flex-col gap-2">
-          <p className="text-[16px]/5 text-[#212121] font-medium ml-[6px]">
-            In Progress
-            <span className="text-[#84838A] ml-[2px] text-sm/4.5 font-normal">
-              4
-            </span>{" "}
-          </p>
-          <DetailedPageCard />
-        </div>
-        <div className=" bg-[#F9F9F9]  border border-gray-border1 p-3 rounded-[12px] flex flex-col gap-2">
-          <p className="text-[16px]/5 text-[#212121] font-medium ml-[6px]">
-            Completed
-            <span className="text-[#84838A] ml-[2px] text-sm/4.5 font-normal">
-              4
-            </span>{" "}
-          </p>
-          <DetailedPageCard />
+                  <button
+                    type="button"
+                    className="inline-flex items-center gap-1 rounded-full bg-white/80 px-2.5 py-1 text-xs font-medium text-slate-600 transition hover:bg-white"
+                  >
+                    <CirclePlus className="h-3.5 w-3.5" />
+                    Add
+                  </button>
+                </div>
+              </div>
+
+              <div className="mt-3 flex min-h-[320px] min-w-0 flex-col gap-3 rounded-[14px] border border-dashed border-slate-200/80 bg-white/45 p-2">
+                {columnCards.length ? (
+                  columnCards.map((card) => (
+                    <DetailedPageCard
+                      key={card.id}
+                      card={card}
+                      isDragging={draggingId === card.id}
+                      onDragStart={handleDragStart}
+                      onDragEnd={() => {
+                        setDraggingId(null);
+                        setDropColumn(null);
+                      }}
+                    />
+                  ))
+                ) : (
+                  <div className="flex min-h-[240px] items-center justify-center rounded-[12px] border border-dashed border-slate-200 bg-white/60 text-sm text-slate-400">
+                    Drop a card here
+                  </div>
+                )}
+              </div>
+            </Motion.div>
+          );
+        })}
         </div>
       </div>
     </>
