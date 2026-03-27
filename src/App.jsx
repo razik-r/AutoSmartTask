@@ -20,12 +20,13 @@ function App() {
   
   return(
 
-
-  <EvaluationScore/>
+<>
+ <EvaluationScore/>
   <RequiredAction/>
-
   <Gallery/>
   
+</>
+ 
 
 
   )
