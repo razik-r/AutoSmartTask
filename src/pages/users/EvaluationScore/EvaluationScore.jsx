@@ -142,7 +142,7 @@ export default function EvaluationScore() {
   );
 
   return (
-    <div className="min-h-full min-w-0 bg-transparent px-1 py-1">
+    <div className="min-h-full min-w-full bg-transparent px-1 py-1">
       <Motion.div
         initial={{ opacity: 0, y: 14 }}
         animate={{ opacity: 1, y: 0 }}

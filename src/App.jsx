@@ -82,29 +82,37 @@ function App() {
             </div>
           ))}
         </div>
-      </header>
-
-      <main className="workspace-stack">
-        <section className="workspace-section" data-tone={activeSection.id}>
-          <div className="tab-shell">
-            <WorkspaceTabs
+         <WorkspaceTabs
               sections={sections}
               activeTab={activeTab}
               onChange={setActiveTab}
             />
+      </header>
+
+
+      <main className="workspace-stack mt-5">
+        <section className="workspace-section" data-tone={activeSection.id}>
+          
+          <div className="tab-shell">
+
+            {/* <WorkspaceTabs
+              sections={sections}
+              activeTab={activeTab}
+              onChange={setActiveTab}
+            /> */}
 
             <Motion.div
               layout
               transition={smoothSpring}
               className="section-intro"
             >
-              <div className="section-title-row">
+              <div className="flex gap-2 items-center">
                 <div className="section-icon">
                   <ActiveIcon className="h-5 w-5" />
                 </div>
                 <div>
                   <span className="section-eyebrow">{activeSection.eyebrow}</span>
-                  <h2>{activeSection.title}</h2>
+                  <h1  className="text-3xl font-medium">{activeSection.title}</h1>
                 </div>
               </div>
 

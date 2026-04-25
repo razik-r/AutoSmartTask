@@ -22,33 +22,37 @@ export default function ToggleView({ onViewChange }) {
   const [selectedView, setSelectedView] = useState("List");
 
   function handleViewChange(newView) {
-    setSelectedView(newView);
-    onViewChange(newView);
+     const nextView = selectedView === "List" ? "Grid" : "List";
+    setSelectedView(nextView);
+    onViewChange(nextView);
   }
 
   return (
-    <div className="flex items-center rounded-[16px] border border-slate-200 bg-slate-50 p-1">
+    <div className="flex items-center rounded-[16px] border border-slate-200 bg-slate-50 px-2.5">
       {views.map((view) => {
         const active = selectedView === view;
 
         return (
-          <button
+          <Motion.button
             key={view}
             type="button"
             onClick={() => handleViewChange(view)}
             className="relative min-w-[96px] rounded-[12px] px-3 py-2 text-sm font-medium"
+            whileTap={{ scale: 0.98 }}
+            transition={{ duration: 0.1 }}
           >
             {active ? (
               <Motion.span
                 layoutId="view-toggle-highlight"
                 className="absolute inset-0 rounded-[12px] bg-white shadow-[0_10px_25px_rgba(15,23,42,0.08)]"
+                 transition={{ type: "spring", stiffness: 400, damping: 30 }}
               />
             ) : null}
             <span className={`relative z-10 flex items-center justify-center gap-2 ${active ? "text-slate-900" : "text-slate-500"}`}>
               <span className="h-5 w-5">{icons[view]}</span>
               {view}
             </span>
-          </button>
+          </Motion.button>
         );
       })}
     </div>

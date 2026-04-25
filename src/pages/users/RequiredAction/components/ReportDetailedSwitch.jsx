@@ -42,8 +42,9 @@ export default function ReportDetailedSwitch({ onTabChange }) {
             key={tab.id}
             type="button"
             onClick={() => handleTabChange(tab.id)}
-            whileTap={{ scale: 0.99 }}
-            className="relative rounded-full px-4 py-2.5 text-sm font-medium"
+            // whileTap={{ scale: 0.99 }}
+            // transition={{ duration: 0.1 }}
+            className="relative min-w-[140px] rounded-full px-4 py-2.5 text-sm font-medium"
           >
             {active ? (
               <Motion.span
@@ -55,7 +56,7 @@ export default function ReportDetailedSwitch({ onTabChange }) {
             <span className={`relative z-10 flex items-center gap-2 transition-colors duration-200 ${active ? "text-white" : "text-[#7C7C86]"}`}>
               {tab.icon}
               {tab.id === "Detailed" ? "Detailed Page" : tab.id}
-              <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold transition-colors duration-200 ${active ? "bg-white/14 text-white/90" : "bg-slate-100 text-slate-500"}`}>
+              <span className={`rounded-full w-[48px]  px-2 py-0.5 text-[10px] font-semibold transition-colors duration-200 ${active ? "bg-white/14 text-white/90" : "bg-slate-100 text-slate-500"}`}>
                 {index === 0 ? "List" : "Board"}
               </span>
             </span>

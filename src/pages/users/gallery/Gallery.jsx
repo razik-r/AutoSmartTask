@@ -69,7 +69,7 @@ export default function Gallery() {
   }
 
   return (
-    <div className="min-h-full min-w-0 bg-transparent px-1 py-1 pointer-events-auto">
+    <div className="min-h-full min-w-full bg-transparent px-1 py-1 pointer-events-auto">
       <GalleryHeader />
 
       <div className="min-w-0 overflow-visible rounded-[30px] border border-white/70 bg-[rgba(255,255,255,0.82)] p-4 shadow-[0_24px_80px_rgba(99,102,241,0.12)] backdrop-blur-sm sm:p-5">
@@ -169,7 +169,7 @@ export default function Gallery() {
           })}
         </div>
 
-        <div className="mt-4 grid min-w-0 grid-cols-1 gap-4 rounded-[24px] border border-slate-200/80 bg-white/70 p-4 shadow-[0_20px_45px_rgba(148,163,184,0.12)] sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-4 grid min-w-0 grid-cols-1 gap-4 rounded-[24px]   sm:grid-cols-2 lg:grid-cols-3">
           {visibleImages.length ? (
             visibleImages.map((image, index) => (
               <Motion.div
